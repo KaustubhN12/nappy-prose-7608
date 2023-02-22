@@ -1,10 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import Footer from './Components/Footer/Footer'
+import "./App.css";
+import Footer from "./Components/Footer/Footer";
+import Login from "./Pages/Login";
+import Register from "./Pages/Signup";
 function App() {
   return (
     <div className="App">
-     <Footer/>
+      <Login />
+      <Register />
+      {/* <Footer /> */}
     </div>
   );
 }
