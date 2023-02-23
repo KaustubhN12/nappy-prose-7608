@@ -2,21 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-  Badge,
-  Box,
-  color,
-  Grid,
-  GridItem,
-  Image,
-  Text,
-} from "@chakra-ui/react";
-import {
-  ArrowBackIcon,
-  ArrowForwardIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/icons";
+import { Badge, Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const sliderData1 = [
   {
@@ -103,6 +90,97 @@ const TopBrands = [
       "https://images-static.nykaa.com/uploads/8440b977-a365-4a3e-a5f9-b4c8df2e936c.jpg",
     title: "Complete Your Party Look In Minutes",
     decription: "With Huda Beauty's Lovefest Collection",
+  },
+];
+
+const DiscoverOurFavourites = [
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/f922641b-03ce-4627-b0fe-1cd512a2af30.jpg",
+    title: "Gift Sets",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/2e8f18d5-06d0-4aab-8d8e-7644aa54023f.jpg",
+    title: "Eyeshadows",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/207d5407-b589-4aeb-b5f3-54a9143ed8f5.jpg",
+    title: "Weight Management",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/ccc99a7a-3aec-4a7b-8e40-57ab39e4097e.jpg",
+    title: "Floral Fragrances",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/1924a249-3bef-4a9c-8095-d5a9c2076569.jpg?tr=w-480",
+    title: "Lipsticks",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/4ea35342-cbb3-44ef-a556-9f1c0f749d93.jpg",
+    title: "Blushes",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/86a11d9e-818b-48e4-9435-cb886f4e3762.jpg",
+    title: "Sunscreens",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/3665639b-9bd5-4ff1-a3f8-a1d125b4d536.jpg",
+    title: "Foundations",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/c225c3e8-57c4-4e77-9162-c58426b81381.jpg",
+    title: "Innovative Tools",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/ad2c3fa0-3f81-4fe2-a99c-5e5e59e95407.jpg",
+    title: "Luxe Minis",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/1924a249-3bef-4a9c-8095-d5a9c2076569.jpg",
+    title: "Feminine Hygiene",
+  },
+];
+
+const EverydayEssentials = [
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/c59db0d6-872e-4fd1-bc64-8331897b3965.jpg?tr=w-480",
+    title: "Moisturisers",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/8f8b55d5-0bfc-4545-ba05-df0177672474.jpg?tr=w-480",
+    title: "Bath & Body",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/aff3b609-5b3e-4d8c-8ccb-ad9157824b2d.jpg?tr=w-240,cm-pad_resize",
+    title: "Face Washes",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/e3424d3e-3c6f-4dd2-9cd3-d9ce46570133.jpg?tr=w-480",
+    title: "Budget Makeup",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/4bec33e3-9145-442b-9171-308834402eb3.jpg?tr=w-480",
+    title: "Value Combos",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/d4eba2cb-bbf9-4f6c-ac47-281819f52385.jpg?tr=w-480",
+    title: "Shampoos & Conditioners",
   },
 ];
 
@@ -276,6 +354,227 @@ const NewAtNykaa = [
   },
 ];
 
+const PopularPicks = [
+  {
+    id: 1,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/d/6/d6ed4708904245710804_1.jpg",
+    Keywords: "FEATURED",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&pps=1",
+    title: "Nykaa Skin Potion Facial Oil",
+    originalprice: 69,
+    price: 299,
+    discount: "10% Off",
+    ratingcount: "( 18461 )",
+    shade: "2 Size",
+  },
+  {
+    id: 2,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/5/3/539568927274_H1_8901030773525.jpg",
+    Keywords: "BESTSELLER",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/simple-kind-to-skin-hydrating-light-moisturiser-125-ml/p/390984?productId=390984&pps=2",
+    title: "Simple Kind To Skin Hydrating Light Moisturiser",
+    originalprice: 465,
+    price: 199,
+    discount: "15% Off",
+    ratingcount: "( 8726 )",
+    shade: "2 Sixes",
+  },
+  {
+    id: 3,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/1/b/1bbf16c737534800522.jpg",
+    Keywords: "BESTSELLER",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/plum-green-tea-renewed-clarity-night-gel/p/220111?productId=220111&pps=3",
+    title: "Plum Green Tea Renewed Clarity Night Gel",
+    originalprice: 575,
+    price: 149,
+    discount: "10% Off",
+    ratingcount: "( 19038 )",
+    shade: "",
+  },
+  {
+    id: 4,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/d/f/df3f16cLOREA00000003.jpg",
+    Keywords: "BESTSELLER",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/l-oreal-paris-revitalift-1-5-hyaluronic-acid-serum/p/1112060?productId=1112060&pps=4",
+    title: "L'Oreal Paris Revitalift 1.5% Hyaluronic Acid Serum for Hydr...",
+    originalprice: 499,
+    price: 49,
+    discount: "10% Off",
+    ratingcount: "( 19033 )",
+    shade: "2 Sizes",
+  },
+  {
+    id: 5,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/5/2/52d1876716170266565_1.jpg",
+    Keywords: "FEATURED",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/bobbi-brown-vitamin-enriched-face-base-config/p/294787?productId=294787&pps=5",
+    title: "Bobbi Brown Vitamin Enriched Face Base",
+    originalprice: "",
+    price: 399,
+    discount: "",
+    ratingcount: "( 2160 )",
+    shade: "3 Sizes",
+  },
+  {
+    id: 6,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/9/8/9842bd9CETAP00000004_1.jpg",
+    Keywords: "FEATURED",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/cetaphil-bhr-brightening-night-comfort-cream/p/1171878?productId=1171878&pps=6",
+    title: "Cetaphil Bright Healthy Radiance Night Comfort Cream",
+    originalprice: 1035,
+    price: 849,
+    discount: "5% Off",
+    ratingcount: "( 3071 )",
+    shade: "",
+  },
+  {
+    id: 7,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/f/8/f8ee060MINIM00000001_1.jpg",
+    Keywords: "FEATURED",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/o3-radiant-whitening-day-cream-spf-30-50gm/p/250981?productId=250981&pps=7",
+    title: "O3+ Radiant Day Cream SPF-30 Brightening & Radiant Dermal Zo...",
+    originalprice: 1050,
+    price: 299,
+    discount: "5% Off",
+    ratingcount: "( 1091 )",
+    shade: "4 Sizes",
+  },
+  {
+    id: 8,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/1/9/197ed26PLUMX00000133_1.jpg",
+    Keywords: "FEATURED",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/nykaa-illuminate-vitamin-c-moisturizer/p/2735781?productId=2735781&pps=8",
+    title: "Nykaa SKINRX Vitamin C Illuminate + Day Moisturizer with SPF...",
+    originalprice: 199,
+    price: 99,
+    discount: "",
+    ratingcount: "( 1363 )",
+    shade: "",
+  },
+  {
+    id: 9,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/f/9/f99321eNYCETA0000003_1.jpg",
+    Keywords: "BESTSELLER",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/biotique-morning-nectar-nourish-hydrate-moisturizer/p/6984991?productId=6984991&pps=9",
+    title: "Biotique Morning Nectar Nourish & Hydrate Moisturizer",
+    originalprice: 220,
+    price: 149,
+    discount: "25% Off",
+    ratingcount: "( 28007 )",
+    shade: "2 Sizes",
+  },
+  {
+    id: 10,
+    Image:
+      "https://images-static.nykaa.com/media/catalog/product/tr:w-220,h-220,cm-pad_resize/8/a/8a541fbDOTKE00000054-1.jpg",
+    Keywords: "BESTSELLER",
+    cssqlopj4_URL:
+      "https://www.nykaa.com/cosrx-advanced-snail-96-mucin-power-essence/p/757628?productId=757628&pps=10",
+    title: "COSRX Advanced Snail 96 Mucin Power Essence",
+    originalprice: 499,
+    price: 459,
+    discount: "",
+    ratingcount: "( 8218 )",
+    shade: "",
+  },
+];
+
+const FeaturedBrands = [
+  {
+    image:
+      "https://images-static.nykaa.com/creatives/49395ef6-0458-49fe-911f-2a415c602046/default.png",
+    title: "Upto 20% Off",
+    decription: "On Bestsellers",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/creatives/626dee77-f0de-4ea1-94f0-9b5bde33f977/default.jpg?tr=w-240,cm-pad_resize",
+    title: "Up To 29% Off",
+    decription: "On Corrale",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/ad2c3fa0-3f81-4fe2-a99c-5e5e59e95407.jpg?tr=w-240",
+    title: "Upto 20% Off",
+    decription: "Serum on ₹999",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/creatives/de9fd13c-72b0-4728-846c-fcd70df8e602/default.jpg",
+    title: "Buy 1 @ 5% Off",
+    decription: "Buy 2, Get Flat 12%",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/creatives/07d7b033-1809-4092-801f-879ecd15e2fe/default.png?tr=w-480",
+    title: "Flat 35% Off",
+    decription: "On Entire Range",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/creatives/2168a069-1271-4123-bd8d-879f696dff60/default.jpg?tr=w-480",
+    title: "Flat 10% off",
+    decription: "On Entire Range",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/creatives/fb25aee3-8b4a-4f36-abc0-845590245aac/default.jpg?tr=w-480",
+    title: "On ₹900",
+    decription: "Cleanser Worth ₹595",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/creatives/7665aa19-e8cf-4b7e-81fe-948377539e14/default.jpg?tr=w-480",
+    title: "Upto 30% Off",
+    decription: "On Entire Range",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/creatives/a4439a9a-3f4c-466d-b41f-936dca68d5b2/default.png?tr=w-480",
+    title: "Up To 20% Off",
+    decription: "Free Scrub on ₹699",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/creatives/cbe74a23-15a3-44ce-9062-21ea64747990/default.jpg?tr=w-480",
+    title: "",
+    decription: "",
+  },
+];
+
+const BeautyAdvice = [
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/71c7558d-637c-40ee-b09b-7dfda35cf125.jpg?tr=w-1200",
+    title: "Catch Up On Top Trends, Expert Advice, Fresh Launches & More",
+    decription: "Watch Now",
+  },
+  {
+    image:
+      "https://images-static.nykaa.com/uploads/e7c366df-a513-4932-9cdc-fbeda4a707a5.jpg?tr=w-1200",
+    title: "Catch Up On Top Trends, Expert Advice, Fresh Launches & More",
+    decription: "Read More",
+  },
+];
+
 const Home = () => {
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <Box position="absolute" marginTop="160px" marginLeft="40px" zIndex={1}>
@@ -320,6 +619,7 @@ const Home = () => {
           slidesToScroll: 3,
           infinite: true,
           dots: true,
+          arrows:false
         },
       },
       {
@@ -328,6 +628,8 @@ const Home = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          dots: true,
+          arrows:false
         },
       },
       {
@@ -335,6 +637,8 @@ const Home = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: true,
+          arrows:false
         },
       },
     ],
@@ -353,10 +657,52 @@ const Home = () => {
       {
         breakpoint: 1024,
         settings: {
+          slidesToShow: 5,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+          arrows:false
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          dots: true,
+          arrows:false
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          dots: true,
+          arrows:false
+        },
+      },
+    ],
+  };
+  var setting3 = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5.5,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
           dots: true,
+          arrows:false
         },
       },
       {
@@ -365,6 +711,8 @@ const Home = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          arrows:false,
+          dots: true,
         },
       },
       {
@@ -372,6 +720,8 @@ const Home = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          arrows:false,
+          dots: true,
         },
       },
     ],
@@ -406,7 +756,7 @@ const Home = () => {
       >
         <Grid
           marginBottom="30px"
-          gridTemplateColumns="repeat(2,1fr)"
+          gridTemplateColumns={["repeat(1,1fr)","repeat(2,1fr)"]}
           gap="20px"
         >
           <GridItem>
@@ -441,7 +791,7 @@ const Home = () => {
           Top Brands
         </Text>
         <Grid
-          gridTemplateColumns="repeat(3,1fr)"
+          gridTemplateColumns={["repeat(1,1fr)","repeat(2,1fr)","repeat(3,1fr)"]}
           gap="20px"
           width="95%"
           margin="auto"
@@ -475,7 +825,7 @@ const Home = () => {
         <Grid
           marginTop="40px"
           marginBottom="40px"
-          gridTemplateColumns="repeat(2,1fr)"
+          gridTemplateColumns={["repeat(1,1fr)","repeat(2,1fr)"]}
           gap="20px"
         >
           <GridItem>
@@ -496,7 +846,7 @@ const Home = () => {
           Only At Nykaa
         </Text>
 
-        <Grid gridTemplateColumns="repeat(3,1fr)" gap="20px">
+        <Grid gridTemplateColumns={["repeat(1,1fr)","repeat(2,1fr)","repeat(3,1fr)"]} gap="20px">
           {OnlyAtNykaa.map((el, index) => {
             return (
               <GridItem
@@ -571,7 +921,209 @@ const Home = () => {
             src="https://images-static.nykaa.com/uploads/82eed1ab-64b2-4cb9-818b-9b39cd9284ec.jpg"
           />
         </Box>
-        
+      </div>
+      <Box marginLeft="30px" marginTop="30px" marginBottom="30px">
+        <Slider {...setting3}>
+          {DiscoverOurFavourites.map((el, index) => {
+            return (
+              <div key={index}>
+                <Box textAlign="left" height="310" marginBottom={["80px","0px","0px"]}>
+                  <Box padding="12px">
+                    <Image borderRadius="8px" src={el.image} />
+                    <Box
+                      borderRadius="0px 0px 8px 8px"
+                      position="absolute"
+                      marginTop="-37px"
+                      width="220px"
+                      padding="7px"
+                      backdropFilter="blur(10px) saturate(260%)"
+                    >
+                      <Text fontWeight="650">{el.title}</Text>
+                    </Box>
+                  </Box>
+                </Box>
+              </div>
+            );
+          })}
+        </Slider>
+      </Box>
+
+      <div style={{ margin: "auto", width: "93%", marginTop: "30px" }}>
+        <Text
+          marginLeft="5px"
+          marginBottom="10px"
+          fontSize="2xl"
+          fontWeight="600"
+          align="left"
+        >
+          Popular Picks
+        </Text>
+        <Box marginBottom="30px">
+          <Image
+            borderRadius="8px"
+            src="https://images-static.nykaa.com/uploads/fd34eddd-690e-4f5b-b656-859c1e8df184.png"
+          />
+        </Box>
+      </div>
+
+      <div
+        style={{ marginLeft: "30px", marginBottom: "40px", marginTop: "30px" }}
+        className="slider"
+      >
+        <Slider {...setting2}>
+          {PopularPicks.map((el, index) => {
+            return (
+              <div key={index}>
+                <Box textAlign="left" height="310" padding="10px">
+                  <Box border="1px solid #E2E8F0" padding="5px">
+                    <Badge variant="subtle" colorScheme="gray">
+                      {el.Keywords}
+                    </Badge>
+                    <Image borderRadius="8px" src={el.Image} />
+                  </Box>
+                  <Text fontSize="13px" fontWeight="550">
+                    {el.title}
+                  </Text>
+                  <Text fontSize="13px">{el.shade}</Text>
+                  <Text fontSize="16px" fontWeight="600">
+                    ₹{el.price}
+                  </Text>
+                </Box>
+              </div>
+            );
+          })}
+        </Slider>
+      </div>
+
+      <div style={{ margin: "auto", width: "93%", marginTop: "30px" }}>
+        <Text
+          marginLeft="5px"
+          marginBottom="10px"
+          fontSize="2xl"
+          fontWeight="600"
+          align="left"
+        >
+          Featured Brands
+        </Text>
+        <Grid
+          gridTemplateColumns={["repeat(1,1fr)","repeat(3,1fr)","repeat(5,1fr)"]}
+          gap="20px"
+          marginBottom="30px"
+        >
+          {FeaturedBrands.map((el, index) => {
+            return (
+              <GridItem
+                key={index}
+                border="1px solid #E2E8F0"
+                borderRadius="8px"
+              >
+                <Box>
+                  <Image borderRadius="8px 8px 0px 0px" src={el.image} />
+                </Box>
+                <Box padding="12px">
+                  <Text
+                    fontSize="17px"
+                    align="left"
+                    color="#000000"
+                    fontWeight="600"
+                  >
+                    {el.title}
+                  </Text>
+                  <Text align="left">{el.decription}</Text>
+                </Box>
+              </GridItem>
+            );
+          })}
+        </Grid>
+      </div>
+
+      <div>
+        <Box backgroundColor="#E6FFFA" paddingTop="1px">
+          <div style={{ margin: "auto", width: "93%", marginTop: "30px" }}>
+            <Text
+              marginLeft="5px"
+              marginBottom="10px"
+              fontSize="2xl"
+              fontWeight="600"
+              align="left"
+            >
+              Everyday Essentials
+            </Text>
+            <Box marginBottom="30px">
+              <Image
+                borderRadius="8px"
+                src="https://images-static.nykaa.com/uploads/2adda7a5-567a-4db1-b408-06c96be60287.jpg"
+              />
+            </Box>
+            <Slider {...setting3}>
+              {EverydayEssentials.map((el, index) => {
+                return (
+                  <div key={index}>
+                    <Box textAlign="left" height="310">
+                      <Box padding="12px">
+                        <Image borderRadius="8px" src={el.image} />
+                        <Box
+                          borderRadius="0px 0px 8px 8px"
+                          width="210px"
+                          padding="7px"
+                          backgroundColor="#FFFFFF"
+                        >
+                          <Text fontWeight="550">{el.title}</Text>
+                        </Box>
+                      </Box>
+                    </Box>
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
+        </Box>
+      </div>
+
+      <div style={{ margin: "auto", width: "93%", marginTop: "30px" }}>
+        <Text marginLeft="5px" fontSize="2xl" fontWeight="600" align="left">
+          Beauty Advice
+        </Text>
+        <Text marginLeft="5px" marginBottom="10px" align="left">
+          Discover Latest Tips & Tricks
+        </Text>
+
+        <Grid
+          gridTemplateColumns={["repeat(1,1fr)","repeat(2,1fr)"]}
+          gap="20px"
+          marginBottom="30px"
+        >
+          {BeautyAdvice.map((el, index) => {
+            return (
+              <GridItem
+                key={index}
+                border="1px solid #E2E8F0"
+                borderRadius="8px"
+              >
+                <Box>
+                  <Image borderRadius="8px 8px 0px 0px" src={el.image} />
+                </Box>
+                <Box padding="12px">
+                  <Text
+                    fontSize="17px"
+                    align="left"
+                    color="#000000"
+                    fontWeight="600"
+                  >
+                    {el.title}
+                  </Text>
+                  <Text color="pink.500" align="left">
+                    {el.decription}
+                  </Text>
+                </Box>
+              </GridItem>
+            );
+          })}
+        </Grid>
+
+        <Box>
+          <Image src="https://images-static.nykaa.com/uploads/49e43a50-37b5-405a-be2d-ab90055115ec.jpg" />
+        </Box>
       </div>
     </div>
   );
