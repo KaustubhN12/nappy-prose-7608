@@ -728,8 +728,9 @@ const Home = () => {
   };
   return (
     <div className="parent-div">
-      <div
-        style={{ marginLeft: "30px", marginBottom: "40px" }}
+      <Box
+        marginLeft={["0px","0px","30px"]}
+        marginBottom="40px"
         className="slider"
       >
         <Text marginLeft="10px" fontSize="2xl" fontWeight="600" align="left">
@@ -746,7 +747,7 @@ const Home = () => {
             );
           })}
         </Slider>
-      </div>
+      </Box>
       <Box width="80%" margin="auto">
         <Image src="https://images-static.nykaa.com/uploads/d0bf2aa0-ce54-4154-93a4-a3060b3d2d48.gif" />
       </Box>
@@ -1006,7 +1007,7 @@ const Home = () => {
           Featured Brands
         </Text>
         <Grid
-          gridTemplateColumns={["repeat(1,1fr)","repeat(3,1fr)","repeat(5,1fr)"]}
+          gridTemplateColumns={["repeat(2,1fr)","repeat(3,1fr)","repeat(5,1fr)"]}
           gap="20px"
           marginBottom="30px"
         >
@@ -1066,7 +1067,7 @@ const Home = () => {
                           borderRadius="0px 0px 8px 8px"
                           width="210px"
                           padding="7px"
-                          backgroundColor="#FFFFFF"
+                          backgroundColor={["none","#FFFFFF"]}
                         >
                           <Text fontWeight="550">{el.title}</Text>
                         </Box>
