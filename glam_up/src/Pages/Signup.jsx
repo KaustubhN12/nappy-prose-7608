@@ -19,6 +19,9 @@ import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
+import { Auth } from "../firebase";
+import { async } from "@firebase/util";
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,16 +43,26 @@ export default function SignupCard() {
     } else if (f_password === "") {
       alert("Please enter Password !");
     }
-
-    let log_user = {
-      email: f_email,
-      password: f_password,
-    };
-    let arr = JSON.parse(localStorage.getItem("user")) || [];
-    arr.push(log_user);
-    localStorage.setItem("user", JSON.stringify(arr));
+    // let arr = JSON.parse(localStorage.getItem("user")) || [];
+    // arr.push(log_user);
+    // localStorage.setItem("user", JSON.stringify(arr));
     // <Navigate to="/login" />
-    navigate("/login");
+    // navigate("/login");
+    // console.log(log_user)
+    createUserWithEmailAndPassword(Auth,f_email,f_password).then(async(res)=>{
+      const user = res.user
+     await updateProfile(user,{
+        displayName:f_name,
+      })
+      console.log(res)
+    }).catch((err)=>{
+      console.log(err)
+    })
+
+    setF_email("");
+    setF_name("");
+    setF_password("");
+    setL_name("");
   };
 
   return (
