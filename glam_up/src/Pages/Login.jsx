@@ -13,11 +13,13 @@ import {
   Center,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
+import { Auth } from "../firebase";
 
-let data = JSON.parse(localStorage.getItem("user"));
+// let data = JSON.parse(localStorage.getItem("user"));
 
 export default function SimpleCard() {
   const [f_email, setF_email] = useState("");
@@ -27,14 +29,22 @@ export default function SimpleCard() {
   // console.log(data);
 
   const handle = () => {
-    data.forEach((e) => {
-      if (f_email === e.email && f_password === e.password) {
-        alert("Login successful");
-        navigate("/");
-      } else {
-        alert("Login failed");
-      }
-    });
+    // data.forEach((e) => {
+    //   if (f_email === e.email && f_password === e.password) {
+    //     alert("Login successful");
+    //     // navigate("/");
+    //   } else {
+    //     alert("Login failed");
+    //   }
+    // });
+    signInWithEmailAndPassword(Auth,f_email,f_password).then(async(res)=>{
+      console.log(res)
+    }).catch((err)=>{
+      console.log(err)
+    })
+
+    setF_email("");
+    setF_password("");
   };
 
   return (
