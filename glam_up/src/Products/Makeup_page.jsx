@@ -131,7 +131,13 @@ var filterPrice = originalDatas.filter(function (el) {
 });
 setDatas(filterPrice);
 }  
-
+// filter by star 
+const  handleFilterStar = (ele)=> {
+  var filterStars = originalDatas.filter(function (el) {
+   return el.star >= +ele ;
+  });
+  setDatas(filterStars);
+  }  
 useEffect(()=>{
  getData(page);
 },[page])
@@ -193,22 +199,23 @@ useEffect(()=>{
                   <details className="sidebar-dropdown">
                           <summary><Box className='sidebar-title'><Text fontSize='lg' fontWeight='500'>Discount</Text> <GrDown/></Box> </summary>
                             <ul>
-                              <li><Box className='sidebar-checkbox'  onClick={()=> handleFilterDiscount("50")}  ><label>50%</label><input id='pink' name="discount" type='checkbox' /></Box></li>
-                              <li><Box className='sidebar-checkbox'  onClick={()=> handleFilterDiscount("40")} ><label>40%</label><input  id='pink' name="discount" className='input-checkbox' type='checkbox' /></Box></li>
-                              <li><Box className='sidebar-checkbox' onClick={()=> handleFilterDiscount("30")} ><label>30%</label><input  id='pink' name="discount" className='input-checkbox' type='checkbox' /></Box></li>
-                              <li><Box className='sidebar-checkbox' onClick={()=> handleFilterDiscount("20")} > <label>20%</label><input id='pink' name="discount" className='input-checkbox' type='checkbox' /></Box></li>
-                              <li><Box className='sidebar-checkbox' onClick={()=> handleFilterDiscount("10")} > <label>10%</label><input id='pink' name="discount" className='input-checkbox' type='checkbox' /></Box></li>
+                              <li><Box className='sidebar-checkbox'  onClick={()=> handleFilterDiscount("50")}  ><label>50% and above</label><input id='pink' name="discount" type='checkbox' /></Box></li>
+                              <li><Box className='sidebar-checkbox'  onClick={()=> handleFilterDiscount("40")} ><label>40% and above</label><input  id='pink' name="discount" className='input-checkbox' type='checkbox' /></Box></li>
+                              <li><Box className='sidebar-checkbox' onClick={()=> handleFilterDiscount("30")} ><label>30% and above</label><input  id='pink' name="discount" className='input-checkbox' type='checkbox' /></Box></li>
+                              <li><Box className='sidebar-checkbox' onClick={()=> handleFilterDiscount("20")} > <label>20% and above</label><input id='pink' name="discount" className='input-checkbox' type='checkbox' /></Box></li>
+                              <li><Box className='sidebar-checkbox' onClick={()=> handleFilterDiscount("10")} > <label>10% and above</label><input id='pink' name="discount" className='input-checkbox' type='checkbox' /></Box></li>
                             </ul>
                       </details>
                       <hr />
                   <details className="sidebar-dropdown">
                       <summary><Box className='sidebar-title'><Text fontSize='lg' fontWeight='500'>Avg Customer Rating </Text> <GrDown/></Box> </summary>
-                      <ul>
-                      <li><Box className='sidebar-checkbox'><label>5 Star</label><input  id='pink' type='checkbox' name="star"   /></Box></li>                         
-                      <li><Box className='sidebar-checkbox'><label>4 Star</label><input  id='pink' type='checkbox' name="star"   /></Box></li>                         
-                      <li><Box className='sidebar-checkbox'><label>3 Star</label><input  id='pink' type='checkbox' name="star"   /></Box></li>                         
-                      <li><Box className='sidebar-checkbox'><label>2 Star</label><input  id='pink' type='checkbox' name="star"   /></Box></li>                         
-                      </ul>
+                            <ul>
+                              <li><Box className='sidebar-checkbox'  onClick={()=> handleFilterStar("5")}  ><label>5 Star and above</label><input id='pink' name="star" type='checkbox' /></Box></li>
+                              <li><Box className='sidebar-checkbox'  onClick={()=> handleFilterStar("4")} ><label>4 Star and above</label><input  id='pink' name="star" className='input-checkbox' type='checkbox' /></Box></li>
+                              <li><Box className='sidebar-checkbox' onClick={()=> handleFilterStar("3")} ><label>3 Star and above</label><input  id='pink' name="star" className='input-checkbox' type='checkbox' /></Box></li>
+                              <li><Box className='sidebar-checkbox' onClick={()=> handleFilterStar("2")} > <label>2 Star and above</label><input id='pink' name="star" className='input-checkbox' type='checkbox' /></Box></li>
+                        
+                            </ul>
                   </details>
                   <hr />
                 </Box>
@@ -254,11 +261,11 @@ useEffect(()=>{
         {el.title}
         </Heading>
          <Box h='20px' display='flex' gap='6px' alignItems='center' justifyContent='center'>MRP: 
-             <Text  as='del' fontSize='md' color='gray'>{el.originalprice} </Text>
-             <Text  fontWeight='600' fontSize='md'>{el.price}</Text>
-             <Text  fontSize='md' color='green'>({el.discount})</Text>
+             <Text  as='del' fontSize='md' color='gray'>₹{el.originalprice} </Text>
+             <Text  fontWeight='600' fontSize='md'>₹{el.price}</Text>
+             <Text  fontSize='md' color='green'>{el.discount}% off </Text>
           </Box>
-              <Text fontSize='sm' color='gray'>( {el.ratingcount} )</Text>
+              <Text fontSize='md' color='gray'>{el.starcount} ({el.ratingcount} )</Text>
       </VStack>
           <Flex  mt='15px'  gap="2" justifyContent="center" display='none' className='likeAndCartButton'>
         <Button  bg="white" w='20%'>
