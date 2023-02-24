@@ -1,16 +1,16 @@
-import { AuthContext } from "../AuthContext/AuthContext";
+// import { AuthContext } from "../AuthContext/AuthContext";
 import { useContext } from "react";
 import style from "./Navbar.module.css"
 import {SearchIcon} from "@chakra-ui/icons";
 import {ButtonGroup,Button} from "@chakra-ui/react"
 import { Link } from 'react-router-dom';
-import CartDrawer from '../CartPage/Cart';
-import SignIn from "../SignInPage/SignIn";
+// import CartDrawer from '../CartPage/Cart';
+// import SignIn from "../SignInPage/SignIn";
 
 
 const Navbar =()=>{
 
-  const { isAuth,Myname } = useContext(AuthContext)
+  // const { isAuth,Myname } = useContext(AuthContext)
 
 
 
@@ -67,11 +67,11 @@ const Navbar =()=>{
               
             <ButtonGroup gap='2'>
            {/* <Button colorScheme='pink'>Sign Up</Button> */}
-          {isAuth? <div  style={{fontWeight:"700", fontSize:"18px" }}> 😃 {Myname}</div> : <SignIn />}
+          {/* {isAuth? <div  style={{fontWeight:"700", fontSize:"18px" }}> 😃 {Myname}</div> : <SignIn />} */}
           </ButtonGroup>
             </div>
             <div className={style.card3}>
-            <CartDrawer  />
+            {/* <CartDrawer  /> */}
             </div>
           </div>
         </div>
