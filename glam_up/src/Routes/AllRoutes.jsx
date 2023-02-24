@@ -1,11 +1,10 @@
 import {Routes, Route} from "react-router-dom";
-import Home from "../HomePage/Home";
-import CartDrawer from "../CartPage/Cart";
-import SignIn from "../SignInPage/SignIn";
-import Payment from "../Payment/Payment";
-import Face from "../Face/Face";
-import Thankx from "../Payment/Thankx";
-import LogInComponent from "../SignInPage/Login";
+import home from "../Pages/home";
+import Signup from "../Pages/Signup";
+import Payment from "../Pages/Payment";
+//import Face from "../Face/Face";
+//import Thankx from "../Payment/Thankx";
+//import LogInComponent from "../SignInPage/Login";
 
 
 const AllRoutes =()=>{

@@ -4,7 +4,7 @@ import style from "./Navbar.module.css"
 import {SearchIcon} from "@chakra-ui/icons";
 import {ButtonGroup,Button} from "@chakra-ui/react"
 import { Link } from 'react-router-dom';
-import CartDrawer from '../CartPage/Cart';
+//import CartDrawer from '../CartPage/Cart';
 import SignIn from "../SignInPage/SignIn";
 
 
@@ -57,7 +57,7 @@ const Navbar =()=>{
             </div>
               <input
               
-                style={{position: "relative"}}
+                style={{position: "relative",height:"30px"}}
                 type="text"
                 className={style.input}
                 placeholder="Search on Cosmetic+"
@@ -71,7 +71,7 @@ const Navbar =()=>{
           </ButtonGroup>
             </div>
             <div className={style.card3}>
-            <CartDrawer  />
+            {/* <CartDrawer  /> */}
             </div>
           </div>
         </div>
