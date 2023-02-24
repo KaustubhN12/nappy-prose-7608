@@ -32,6 +32,9 @@ const Address = () => {
   const [screen, setScreen] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = useRef();
+
+
+  
   return (
     <SimpleGrid
       w={screen === "sm" ? "90%" : screen === "md" ? "80%" : "60%"}
@@ -91,7 +94,7 @@ const Address = () => {
           {/* Drawer                 */}
 
           <Drawer
-            // isOpen={isOpen}
+            isOpen={isOpen}
             placement="right"
             initialFocusRef={firstField}
             onClose={onClose}
