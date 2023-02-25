@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Badge, Box, Grid, GridItem, Image, Text } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import Navbar from "../Components/Navbar/Navbar";
+import SubNavbar from "../Components/Navbar/SubNavbar";
 
 const sliderData1 = [
   {
@@ -728,6 +730,8 @@ const Home = () => {
   };
   return (
     <div className="parent-div">
+      <Navbar/>
+      <SubNavbar/>
       <Box
         marginLeft={["0px","0px","30px"]}
         marginBottom="40px"

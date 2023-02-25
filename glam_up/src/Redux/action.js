@@ -15,10 +15,10 @@ import {
   };
   
 
-  export const getProduct = (page) => (dispatch)=>{
-      //console.log(param)
+  export const getProduct = (location) => (dispatch)=>{
+    const url= `https://api-nykaa-database.vercel.app${location}`
       dispatch(ProductRequest());
-      axios.get(`https://api-nykaa-database.vercel.app/makeup?_page=${page}&_limit=20`)
+      axios.get(url)
       .then((res)=>{
            dispatch(getProductSuccess(res.data));
            console.log(res.data)
