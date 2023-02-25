@@ -730,8 +730,6 @@ const Home = () => {
   };
   return (
     <div className="parent-div">
-      <Navbar/>
-      <SubNavbar/>
       <Box
         marginLeft={["0px","0px","30px"]}
         marginBottom="40px"

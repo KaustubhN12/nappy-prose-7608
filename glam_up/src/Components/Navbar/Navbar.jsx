@@ -2,8 +2,9 @@
 //import { useContext } from "react";
 import style from "./Navbar.module.css"
 import {SearchIcon} from "@chakra-ui/icons";
-import {ButtonGroup,Button} from "@chakra-ui/react"
+import {ButtonGroup,Button, Box} from "@chakra-ui/react"
 import { Link } from 'react-router-dom';
+import { BsHandbag } from "react-icons/bs";
 //import CartDrawer from '../CartPage/Cart';
 //import Signup from "../Pages/Signup";
 
@@ -42,8 +43,8 @@ const Navbar =()=>{
             </Link>
            
            <Link to="/" className={style.pTags} ><p>Categories</p></Link>
-           <Link to="/" className={style.pTags} ><p>Brands</p></Link>
-           <Link to="/" className={style.pTags} ><p>Luxe</p></Link>
+           <Link to="/luxe" className={style.pTags} ><p>Luxe</p></Link>
+           <Link to="/" className={style.pTags} ><p>Brands</p></Link>           
            <Link to="/" className={style.pTags} ><p>Cosmetic+ Fashion</p></Link>
            <Link to="/" className={style.pTags} ><p>Beauty Advice</p></Link>
             
@@ -64,12 +65,12 @@ const Navbar =()=>{
             <div className={style.card2}>
               
             <ButtonGroup gap='2'>
-           {/* <Button colorScheme='pink'>Sign Up</Button> */}
-          {/* {isAuth? <div  style={{fontWeight:"700", fontSize:"18px" }}> 😃 {Myname}</div> : <Signup />} */}
+           <Link to={"/login"}><Button colorScheme='pink'>Sign Up</Button></Link>
+           <Link to={"/cart"}><Box><BsHandbag size={27}/></Box></Link>
+          <div  style={{fontWeight:"700", fontSize:"18px" }}> 😃</div> 
           </ButtonGroup>
             </div>
             <div className={style.card3}>
-            {/* <CartDrawer  /> */}
             </div>
           </div>
         </div>

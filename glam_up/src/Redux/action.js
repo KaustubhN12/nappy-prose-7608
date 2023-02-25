@@ -3,6 +3,14 @@ import {
     PRODUCT_FAILURE,
     PRODUCT_REQUEST,
   } from "./actionType";
+  import {
+    cartDataLoading,
+    cartDataSuccess,
+    cartDataError,
+    deleteLoading,
+    deleteSuccess,
+    deleteError,
+  } from "./actionType";
   import axios from 'axios';
   export const getProductSuccess = (payload) => {
     return { type: GET_PRODUCT_SUCCESS, payload };
@@ -28,16 +36,6 @@ import {
    }
   
   //............cart page............
-
-  import axios from "axios";
-import {
-  cartDataLoading,
-  cartDataSuccess,
-  cartDataError,
-  deleteLoading,
-  deleteSuccess,
-  deleteError,
-} from "./actionType";
 
 export const getData = (userid) => async (dispatch) => {
   try {
