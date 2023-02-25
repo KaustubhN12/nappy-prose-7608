@@ -3,7 +3,7 @@ import { Box,Text, HStack,VStack,Divider,Center,Tooltip,Collapse,Button,useDiscl
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {  useLocation, useParams } from 'react-router-dom';
-import {  hairProduct, makeupProduct } from '../Redux/action';
+import {  getProduct, hairProduct, makeupProduct } from '../Redux/action';
 import {FaProductHunt} from "react-icons/fa"
 import { AiOutlineRollback} from "react-icons/ai"
 import {CiLocationOn} from "react-icons/ci";
@@ -87,7 +87,7 @@ const SingleProductPage = () => {
       }
 
    useEffect(()=>{
-    dispatch(makeupProduct(location.pathname))
+    dispatch(getProduct(location.pathname))
    },[])
 
   return ( 

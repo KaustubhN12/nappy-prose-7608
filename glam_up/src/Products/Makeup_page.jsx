@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box,Text,SimpleGrid,Image,Container,Button,toast ,Flex,VStack,Heading} from '@chakra-ui/react';
+import {Box,Text,SimpleGrid,Image,Container,Button,Flex,VStack,Heading, useToast} from '@chakra-ui/react';
 import {useState,useEffect} from 'react';
 import { GrNext, GrPrevious} from 'react-icons/gr';
 import './ProductPage.css';
@@ -8,7 +8,7 @@ import {BsHeart} from "react-icons/bs"
 //import { useLocation, useSearchParams } from 'react-router-dom';
 import {GrDown} from 'react-icons/gr'
 import axios from 'axios';
-//import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
  const Loading=()=>{
         return(
@@ -24,6 +24,7 @@ const Makeup_page = () => {
  const [isLoading, setIsLoading] = useState(false);
  const [page, setPage] = useState(1);
  const [originalDatas,setOriginalDatas] = useState([]);
+ const location = useLocation();
 // const dispatch = useDispatch();
  // const products = useSelector(store=> {
  //    return  (store.productReducer.product)
@@ -260,7 +261,7 @@ useEffect(()=>{
           flexDirection: "column",
              }}
         > 
-  <Link  to= {`${location.pathname}/${el.id}`} key={el.id}>
+           <Link  to= {`${location.pathname}/${el.id}`} key={el.id}>
        <Image src={el.Image}></Image>
       <VStack>
           <Heading
