@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Footer from './Components/Footer/Footer';
-import AllRoutes from './Routes/AllRoutes'
+
 
 import Home from './Pages/home';
 import { useEffect } from 'react';
@@ -17,9 +17,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Home/> */}
+      <Home/>
      {/* <Footer/> */}
-     <AllRoutes/>
     
     </div>
   );
