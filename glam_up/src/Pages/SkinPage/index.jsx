@@ -19,11 +19,11 @@ import { FeaturedBrands, afterFeatureBrand } from "./Data/FeaturedBrand";
 import { BeautyAdvice } from "./Data/BeautyAdvice";
 import { CategoriesInFocus } from "./Data/CategoriesInFocus";
 
-const HomePage = () => {
+const LuxePage = () => {
   return (
     <>
       <Box border={"0px solid red"} marginTop="5">
-        <MainHeading >The SkinCare Store</MainHeading>
+        <MainHeading >The Luxe Store</MainHeading>
         <Box mt={"15px"}>
           <CarouselSlider />
         </Box>
@@ -190,4 +190,4 @@ const HomePage = () => {
     </>
   );
 };
-export default HomePage;
+export default LuxePage;

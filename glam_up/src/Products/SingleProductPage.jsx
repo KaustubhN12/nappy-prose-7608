@@ -8,7 +8,7 @@ import {FaProductHunt} from "react-icons/fa"
 import { AiOutlineRollback} from "react-icons/ai"
 import {CiLocationOn} from "react-icons/ci";
 import './ProductPage.css';
-import ReactImageMagnify from 'react-image-magnify';
+// import ReactImageMagnify from 'react-image-magnify';
 import {BiChevronDown} from 'react-icons/bi'
 
 const SingleProductPage = () => {
@@ -108,9 +108,9 @@ const SingleProductPage = () => {
                      </VStack>
                      <Box  padding='10px'  className='hoverimage'>
 
-                              {/* <Image src={currimage}></Image> */}
+                              <Image src={currimage}></Image>
 
-                             <ReactImageMagnify {...{
+                             {/* <ReactImageMagnify {...{
                             smallImage: {
                                     alt: 'image',
                                     isFluidWidth: true,
@@ -121,7 +121,7 @@ const SingleProductPage = () => {
                                 width: 1200,
                                 height: 1800,
                                     }
-                               }} />
+                               }} /> */}
                      </Box>
                 </Box>
                  

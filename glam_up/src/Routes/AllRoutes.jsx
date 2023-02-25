@@ -1,31 +1,25 @@
 import {Routes, Route} from "react-router-dom";
 import AddProduct from "../Admin/AddProduct";
 import RemoveProduct from "../Admin/RemoveProduct";
+import Address from "../Pages/AddressPage/Address";
 import Admin from "../Pages/Admin";
+import CartItem from "../Pages/CartPage/Components/CartItem";
 import Home from "../Pages/home";
 import SimpleCard from "../Pages/Login";
+import PaymentPage from "../Pages/PaymentPage";
 import SignupCard from "../Pages/Signup";
+import LuxePage from "../Pages/SkinPage";
 import HairPage from "../Products/HairPage";
 import Makeup_page from "../Products/Makeup_page";
 import SingleProductPage from "../Products/SingleProductPage";
 import SkinPage from "../Products/SkinPage";
-// import CartDrawer from "../CartPage/Cart";
-// import SignIn from "../SignInPage/SignIn";
-// import Payment from "../Payment/Payment";
-// import Face from "../Face/Face";
-// import Thankx from "../Payment/Thankx";
-// import LogInComponent from "../SignInPage/Login";
-
 
 const AllRoutes =()=>{
     return (
        <Routes>
          <Route path="/"  element={< Home />}  ></Route>
-         {/* <Route path="/cart"  element={< CartDrawer />}   ></Route> */}
-         <Route path="/signIn"  element={< SignupCard />}    ></Route>
-         {/* <Route path="/payment"  element={< Payment />}  ></Route> */}
-         {/* <Route path="/face" element={<Face />} ></Route> */}
-         {/* <Route path="/thanks" element={<Thankx />} ></Route> */}
+         <Route path="/signup"  element={< SignupCard />}    ></Route>
+         <Route path="/payment"  element={< PaymentPage />}  ></Route>
          <Route path="/login"  element={<SimpleCard />} ></Route>
          <Route path="/admin" element={<Admin/>}/>
          <Route path="/admin/add-product" element={<AddProduct/>}/>
@@ -34,6 +28,10 @@ const AllRoutes =()=>{
          <Route path="/:page/:id" element={<SingleProductPage />}></Route>
          <Route path="/skin" element={<SkinPage />}></Route>
          <Route path="/hair" element={<HairPage/>}></Route>
+         <Route path="/cart" element={<CartItem/>}/>
+         <Route path="/luxe" element ={<LuxePage/>}/>
+         <Route path="/address" element={<Address/>}/>
+         <Route path="/payment" element = {<PaymentPage/>}/>
        </Routes>
     )
 }

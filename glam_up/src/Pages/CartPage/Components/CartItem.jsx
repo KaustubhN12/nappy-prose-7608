@@ -1,9 +1,8 @@
 import React from "react";
 import { Flex, Box, Image, Heading, Text, useToast } from "@chakra-ui/react";
 import { MdOutlineDelete } from "react-icons/md";
-
-import { DeleteData } from "../../../Redux/CartPage/action";
 import { useDispatch, useSelector } from "react-redux";
+import { DeleteData } from "../../../Redux/action";
 
 const CartItem = ({
   id,

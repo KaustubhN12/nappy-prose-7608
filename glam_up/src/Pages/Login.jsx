@@ -104,6 +104,9 @@ export default function SimpleCard() {
               >
                 Sign in
               </Button>
+              <Link href="./signup" color={"#fc2779;"}>
+                  Sign Up
+                </Link>
               <Stack>
                 <Button
                   w={"full"}

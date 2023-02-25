@@ -5,7 +5,9 @@ import Home from './Pages/home';
 import { useEffect } from 'react';
 import { Auth } from './firebase';
 import AllRoutes from './Routes/AllRoutes';
-//import Makeup_page from './Products/Makeup_page';
+import Navbar from './Components/Navbar/Navbar';
+import SubNavbar from './Components/Navbar/SubNavbar';
+
 function App() {
 
   useEffect(()=>{
@@ -16,10 +18,10 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Home/> */}
-     {/* <Footer/> */}
+      <Navbar/>
+      <SubNavbar/>
      <AllRoutes/>
-    
+     <Footer/>
     </div>
   );
 }
