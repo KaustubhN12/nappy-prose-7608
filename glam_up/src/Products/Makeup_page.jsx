@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box,Text,SimpleGrid,Image,Container,Button ,Flex,VStack,Heading} from '@chakra-ui/react';
+import {Box,Text,SimpleGrid,Image,Container,Button,Flex,VStack,Heading, useToast} from '@chakra-ui/react';
 import {useState,useEffect} from 'react';
 import { GrNext, GrPrevious} from 'react-icons/gr';
 import './ProductPage.css';
@@ -8,7 +8,7 @@ import {BsHeart} from "react-icons/bs"
 //import { useLocation, useSearchParams } from 'react-router-dom';
 import {GrDown} from 'react-icons/gr'
 import axios from 'axios';
-//import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
  const Loading=()=>{
         return(
@@ -19,11 +19,12 @@ import axios from 'axios';
        }
 const Makeup_page = () => {
 
- // const toast = useToast();
+  const toast = useToast();
  const [product,setDatas]=useState([]);
  const [isLoading, setIsLoading] = useState(false);
  const [page, setPage] = useState(1);
  const [originalDatas,setOriginalDatas] = useState([]);
+ const location = useLocation();
 // const dispatch = useDispatch();
  // const products = useSelector(store=> {
  //    return  (store.productReducer.product)
@@ -138,6 +139,18 @@ const  handleFilterStar = (ele)=> {
   });
   setDatas(filterStars);
   }  
+
+  //========= Add To Cart ================ //
+const addToBag=()=>{
+  toast({
+    title: `Product added to bag`,
+    status: 'success',
+    duration: 4000,
+    isClosable: true,
+  })
+
+
+}  
 useEffect(()=>{
  getData(page);
 },[page])
@@ -230,7 +243,7 @@ useEffect(()=>{
 
    <SimpleGrid columns={{base:1,sm:2,md:2,lg:3}} padding= '0 0.65rem'>
          {product.length>0 && product.map((el) => (
-        //  <Link  to= {`/makeup/${el.id}`} key={el.id}>
+      
         <Box 
           borderRadius='8px'
           className='products'
@@ -247,7 +260,8 @@ useEffect(()=>{
           display: "flex",
           flexDirection: "column",
              }}
-        >
+        > 
+           <Link  to= {`${location.pathname}/${el.id}`} key={el.id}>
        <Image src={el.Image}></Image>
       <VStack>
           <Heading
@@ -266,7 +280,8 @@ useEffect(()=>{
              <Text  fontSize='md' color='green'>{el.discount}% off </Text>
           </Box>
               <Text fontSize='md' color='gray'>{el.starcount} ({el.ratingcount} )</Text>
-      </VStack>
+      </VStack> 
+   </Link>
           <Flex  mt='15px'  gap="2" justifyContent="center" display='none' className='likeAndCartButton'>
         <Button  bg="white" w='20%'>
           <BsHeart color='#FC2779'/>
@@ -278,12 +293,13 @@ useEffect(()=>{
           bg="#FC2779"
           borderRadius='0px'
           p='10px'
+          onClick={addToBag}
           >
           Add to bag
           </Button>
           </Flex>
           </Box>
-          // </Link>
+         
           ))}
   </SimpleGrid>
   </Box>

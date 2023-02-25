@@ -58,3 +58,44 @@ input[type=checkbox]#pink {
     justify-content: space-between;
     align-items: center;
 }
+.imagehover{
+    width : 50px;
+    height:50px;
+    border: 2px solid gray;
+}
+.imagehover:hover{
+    border: 2px solid #fc2779;
+}
+
+.hoverimage:hover .buttonAndAll{
+    display: none;
+   
+}
+.addToBag{
+    padding: 14px 0px;
+    background-color: #fc2779;
+    color: white;
+    font-size: larger;
+}
+.enterPincode{
+    margin-top: 10px;
+    border: 1px solid gray;
+    padding: 8px;
+    width: 250px
+}
+.check{
+    color: #fc2779;
+    margin-left:-50px;
+}
+.showImage{
+    margin-top: 30px;
+}
+
+.readMore{
+     display: flex;
+     justify-content: center;
+    align-items: center;
+    color: #fc2779;
+    background-color: aliceblue;
+    font-size: x-large;
+}

@@ -25,7 +25,7 @@ import { DeleteIcon, PlusSquareIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import Navbar from '../Components/Footer/Navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMakeUpProduct } from '../Redux/Admin/Action';
+import { getHairProduct, getMakeUpProduct, getSkinProduct } from '../Redux/Admin/Action';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 const LinkItems = [
     { name: 'Home', icon: FiHome ,link:"/admin"},
@@ -41,13 +41,14 @@ const Admin = ({ children }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const dispatch = useDispatch();
     const makeUpProduct = useSelector((store)=>store.adminReducer.makeUpProduct);
+    const skinProduct = useSelector((store)=>store.adminReducer.skinProduct);
+    const hairProduct = useSelector((store)=>store.adminReducer.hairProduct);
 
     useEffect(()=>{
-     dispatch(getMakeUpProduct)
-    },[])
-
-    console.log(makeUpProduct)
-
+     dispatch(getMakeUpProduct);
+     dispatch(getSkinProduct);
+     dispatch(getHairProduct);
+    },[]);
 
   return (
      <>
@@ -108,10 +109,42 @@ const Admin = ({ children }) => {
           </Grid>
         </TabPanel>
          <TabPanel>
-         <p>Mosturizer!</p>
+         <Grid gridTemplateColumns="repeat(4,1fr)" gap="20px">
+            {
+              skinProduct.length>0 && skinProduct.map((el)=>{
+                return <GridItem key={el.id} border="1px solid #E2E8F0">
+                    <Box>
+                    <Image src={el.Image}/>
+                    </Box>
+                    <Box padding="10px">
+                      <Text textAlign="center">{el.title}</Text>
+                      <Text marginTop="5px">MRP: <Text as='b'>₹{el.price}</Text></Text>
+                      <Text marginTop="5px">{el.starcount} ( {el.ratingcount} )</Text>
+                      {el.shades?<Text marginTop="5px">{el.shades}</Text>:""}
+                    </Box>
+                </GridItem>
+              })
+            }
+          </Grid>
         </TabPanel>
         <TabPanel>
-         <p>Hair!</p>
+        <Grid gridTemplateColumns="repeat(4,1fr)" gap="20px">
+            {
+              hairProduct.length>0 && hairProduct.map((el)=>{
+                return <GridItem key={el.id} border="1px solid #E2E8F0">
+                    <Box>
+                    <Image src={el.Image}/>
+                    </Box>
+                    <Box padding="10px">
+                      <Text textAlign="center">{el.title}</Text>
+                      <Text marginTop="5px">MRP: <Text as='b'>₹{el.price}</Text></Text>
+                      <Text marginTop="5px">{el.starcount} ( {el.ratingcount} )</Text>
+                      {el.shades?<Text marginTop="5px">{el.shades}</Text>:""}
+                    </Box>
+                </GridItem>
+              })
+            }
+          </Grid>
         </TabPanel>
       </TabPanels>
      </Tabs>

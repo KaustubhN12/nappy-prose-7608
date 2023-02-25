@@ -15,10 +15,10 @@ import {
   };
   
 
-  export const getProduct = (page) => (dispatch)=>{
-      //console.log(param)
+  export const getProduct = (location) => (dispatch)=>{
+    const url= `https://api-nykaa-database.vercel.app${location}`
       dispatch(ProductRequest());
-      axios.get(`https://api-nykaa-database.vercel.app/makeup?_page=${page}&_limit=20`)
+      axios.get(url)
       .then((res)=>{
            dispatch(getProductSuccess(res.data));
            console.log(res.data)
@@ -27,4 +27,42 @@ import {
       })
    }
   
-  
+  //............cart page............
+
+  import axios from "axios";
+import {
+  cartDataLoading,
+  cartDataSuccess,
+  cartDataError,
+  deleteLoading,
+  deleteSuccess,
+  deleteError,
+} from "./actionType";
+
+export const getData = (userid) => async (dispatch) => {
+  try {
+    dispatch({ type: cartDataLoading });
+    await axios
+      .get(`https://api-nykaa-database.vercel.app/cart/${userid}`)
+      .then((res) => {
+        dispatch({ type: cartDataSuccess, payload: res.data.cartdata });
+      });
+  } catch (err) {
+    dispatch({ type: cartDataError });
+  }
+};
+
+export const DeleteData = (userid, index) => async (dispatch) => {
+  try {
+    dispatch({ type: deleteLoading });
+    await axios
+      .delete(
+        `https://api-nykaa-database.vercel.app/cart/${userid}/${index}`
+      )
+      .then((res) => {
+        dispatch({ type: deleteSuccess, payload: res.data });
+      });
+  } catch (err) {
+    dispatch({ type: deleteError });
+  }
+};
