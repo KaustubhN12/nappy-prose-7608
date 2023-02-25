@@ -1,0 +1,176 @@
+
+
+.firstsubContainer{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    border:0px solid blue;
+    justify-content: space-around;
+    background-color: #ff7db0;
+}
+
+
+.topLeft{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topLeft>div>p {
+    font-weight: 600;
+}
+
+.topLeft>div>p:hover{
+    color: #ebe4e4;
+}
+
+.container{
+    border:0px solid blue;
+    top:0;
+    bottom: 0;
+    position: sticky;
+    z-index: 100;
+    width:100%;
+    
+} 
+.Card{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 8vh;
+    background-color: #ffffff;
+     
+}
+.Card>div{
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+ }
+ 
+.inputContainer{
+   
+    display: flex;
+}
+.inputContainer>p{
+     top: -8px;
+      left: 5px;
+}
+.input{
+    width: 15vw;
+    height: 4.5vh;
+    padding-left: 30px;
+    font-size: 15px;
+    outline: none;
+    background:#f4f4f4;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+}
+.input:focus{
+    border: 2px solid #fc3581;
+}
+.card2{
+    display: flex;
+    gap: 0.5vw;
+    cursor:  pointer;
+}
+.card3{
+    display: flex;
+    gap: 1.4vw;
+}
+.card4{
+    height: 12vh;
+    color: white;
+     cursor:pointer; 
+     
+}
+.pTags>p{
+    font-weight: 600;
+}
+ 
+
+.pTags>p:hover{
+    color: #fc3581;
+    cursor: pointer;
+}
+
+
+.content{
+   
+    width: 100vw;
+}
+
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+
+  .dropdown:hover{
+    color: #fc3581;
+    cursor: pointer;
+
+  }
+
+  .dropdown {
+    
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdowncontent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdowncontent p {
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdowncontent a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdowncontent {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+  .main_menuContainer{
+    display: flex;
+    height: 500px;
+  }
+  .main_menuContainer>div{
+    text-align: left;
+    margin-left: 10px;
+    height: 100%;
+    width: 200px;
+  }
+  .main_menuContainer>div>p{
+    font-weight: 600;
+    font-size: larger;
+    line-height:0.3px;
+    
+    
+  }
+
+  .MenuH1{
+    font-weight: 600;
+    font-size: 16px;
+    color: black;
+  }
+
+  .MenuH1~p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .MenuH1~p:hover{
+    color: #fc3581;
+    cursor: pointer;
+  }
