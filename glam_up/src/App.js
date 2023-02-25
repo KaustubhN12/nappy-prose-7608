@@ -7,12 +7,19 @@ import { Auth } from './firebase';
 import AllRoutes from './Routes/AllRoutes';
 import Navbar from './Components/Navbar/Navbar';
 import SubNavbar from './Components/Navbar/SubNavbar';
+import { useDispatch } from 'react-redux';
+import { getlogin } from './Redux/Authentication/Action';
 
 function App() {
 
+  const dispatch = useDispatch();
+
   useEffect(()=>{
    Auth.onAuthStateChanged((user)=>{
-    // console.log(user)
+    if(user){
+      dispatch(getlogin(user.displayName));
+    }
+    // console.log(user.displayName);
    })
   },[]);
 

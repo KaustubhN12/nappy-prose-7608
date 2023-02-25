@@ -14,14 +14,17 @@ import {
   useColorModeValue,
   Link,
   Center,
+  useToast,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
 import { Auth } from "../firebase";
 import { async } from "@firebase/util";
+import { useDispatch } from "react-redux";
+import { getlogin, getSignIn } from "../Redux/Authentication/Action";
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,20 +32,23 @@ export default function SignupCard() {
   const [f_password, setF_password] = useState("");
   const [f_name, setF_name] = useState("");
   const [l_name, setL_name] = useState("");
+  const [change,setChange] = useState(false);
   const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  const toast = useToast();
 
   const handle = (e) => {
-    if (f_name === "" && l_name === "") {
-      alert("Please enter Full Name !");
-    } else if (f_name === "") {
-      alert("Please enter First Name !");
-    } else if (l_name === "") {
-      alert("Please enter Last Name !");
-    } else if (f_email === "") {
-      alert("Please enter Email !");
-    } else if (f_password === "") {
-      alert("Please enter Password !");
-    }
+    // if (f_name === "" && l_name === "") {
+    //   alert("Please enter Full Name !");
+    // } else if (f_name === "") {
+    //   alert("Please enter First Name !");
+    // } else if (l_name === "") {
+    //   alert("Please enter Last Name !");
+    // } else if (f_email === "") {
+    //   alert("Please enter Email !");
+    // } else if (f_password === "") {
+    //   alert("Please enter Password !");
+    // }
     // let arr = JSON.parse(localStorage.getItem("user")) || [];
     // arr.push(log_user);
     // localStorage.setItem("user", JSON.stringify(arr));
@@ -54,16 +60,27 @@ export default function SignupCard() {
      await updateProfile(user,{
         displayName:f_name,
       })
-      console.log(res)
+      toast({
+        title: `Welcome, ${f_name}`,
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
     }).catch((err)=>{
       console.log(err)
     })
-
     setF_email("");
     setF_name("");
     setF_password("");
     setL_name("");
+    setChange(!change);
+    navigate("/");
   };
+
+  useEffect(()=>{
+    
+  },[change])
 
   return (
     <Flex
