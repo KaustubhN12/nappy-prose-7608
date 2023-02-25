@@ -82,9 +82,9 @@ const AddProduct = ({ children }) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        dispatch(postProduct(product));
-        setCategory("");
+        dispatch(postProduct(product,category));
         setProduct(initialState);
+        setCategory("");
     }
 
     return (
@@ -190,7 +190,7 @@ const AddProduct = ({ children }) => {
             />
           </FormControl>
           <FormLabel>Gender</FormLabel>
-          <Select name='gender' value={category} onChange={handleCategory}>
+          <Select name='gender'  onChange={handleCategory}>
             <option value="">Select Category</option>
             <option value="makeup">makeup</option>
             <option value="skin">skin</option>
