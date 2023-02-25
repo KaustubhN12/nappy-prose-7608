@@ -6,6 +6,7 @@ import Footer from './Components/Footer/Footer';
 import Home from './Pages/home';
 import { useEffect } from 'react';
 import { Auth } from './firebase';
+import AllRoutes from './Routes/AllRoutes';
 //import Makeup_page from './Products/Makeup_page';
 function App() {
 
@@ -17,8 +18,9 @@ function App() {
 
   return (
     <div className="App">
-      <Home/>
+      {/* <Home/> */}
      {/* <Footer/> */}
+     <AllRoutes/>
     
     </div>
   );

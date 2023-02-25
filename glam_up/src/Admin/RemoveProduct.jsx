@@ -26,7 +26,7 @@ import { DeleteIcon, PlusSquareIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteProduct, getMakeUpProduct } from '../Redux/Admin/Action';
+import { deleteProduct, getHairProduct, getMakeUpProduct, getSkinProduct } from '../Redux/Admin/Action';
 
 const LinkItems = [
     { name: 'Home', icon: FiHome ,link:"/admin"},
@@ -41,17 +41,44 @@ const RemoveProduct = ({ children }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const dispatch = useDispatch();
     const makeUpProduct = useSelector((store)=>store.adminReducer.makeUpProduct);
+    const skinProduct = useSelector((store)=>store.adminReducer.skinProduct);
+    const hairProduct = useSelector((store)=>store.adminReducer.hairProduct);
     const [tabIndex, setTabIndex] = useState(0);
 
     useEffect(()=>{
-     dispatch(getMakeUpProduct)
+     dispatch(getMakeUpProduct);
+     dispatch(getSkinProduct);
+     dispatch(getHairProduct);
     },[])
 
     const handleDelete = (id) => {
-      dispatch(deleteProduct(id)).then((res)=>{
-        dispatch(getMakeUpProduct);
+      let category=tabIndex==0?"makeup":tabIndex==1?"skin":"hair"
+      console.log(category)
+      dispatch(deleteProduct(id,category)).then((res)=>{
+         if(category=="makeup"){
+          dispatch(getMakeUpProduct);
+         }else if (category=="skin"){
+          dispatch(getSkinProduct);
+         }else{
+          dispatch(getHairProduct);
+         }
       })
     };
+
+    // const handleDeleteSkinProduct = (id) => {
+    //   dispatch(deleteProduct(id)).then((res)=>{
+    //     dispatch(getMakeUpProduct);
+    //   })
+    // };
+
+    // const handleDeleteHairProduct = (id) => {
+    //   dispatch(deleteProduct(id)).then((res)=>{
+    //     dispatch(getMakeUpProduct);
+    //   })
+    // };
+
+    console.log(skinProduct);
+    console.log(hairProduct)
   return (
     <>
     <Box display="flex">
@@ -114,10 +141,46 @@ const RemoveProduct = ({ children }) => {
           </Grid>
         </TabPanel>
          <TabPanel>
-         <p>Mosturizer!</p>
+         <Grid gridTemplateColumns="repeat(4,1fr)" gap="20px">
+            {
+              skinProduct.length>0 && skinProduct.map((el)=>{
+                return <GridItem key={el.id} border="1px solid #E2E8F0">
+                    <Box>
+                    <Image src={el.Image}/>
+                    </Box>
+                    <Box padding="10px">
+                      <Text textAlign="center">{el.title}</Text>
+                      <Text marginTop="5px">MRP: <Text as='b'>₹{el.price}</Text></Text>
+                      <Text marginTop="5px">{el.starcount} ( {el.ratingcount} )</Text>
+                      {el.shades?<Text marginTop="5px">{el.shades}</Text>:""}
+                      <Button marginTop="10px" onClick={()=>handleDelete(el.id)}>Delete<DeleteIcon marginLeft="8px"/></Button>
+                    </Box>
+                    
+                </GridItem>
+              })
+            }
+          </Grid>
         </TabPanel>
         <TabPanel>
-         <p>Hair!</p>
+        <Grid gridTemplateColumns="repeat(4,1fr)" gap="20px">
+            {
+              hairProduct.length>0 && hairProduct.map((el)=>{
+                return <GridItem key={el.id} border="1px solid #E2E8F0">
+                    <Box>
+                    <Image src={el.Image}/>
+                    </Box>
+                    <Box padding="10px">
+                      <Text textAlign="center">{el.title}</Text>
+                      <Text marginTop="5px">MRP: <Text as='b'>₹{el.price}</Text></Text>
+                      <Text marginTop="5px">{el.starcount} ( {el.ratingcount} )</Text>
+                      {el.shades?<Text marginTop="5px">{el.shades}</Text>:""}
+                      <Button marginTop="10px" onClick={()=>handleDelete(el.id)}>Delete<DeleteIcon marginLeft="8px"/></Button>
+                    </Box>
+                    
+                </GridItem>
+              })
+            }
+          </Grid>
         </TabPanel>
       </TabPanels>
      </Tabs>
