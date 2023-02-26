@@ -1,6 +1,6 @@
 import style from "./Navbar.module.css"
-import {SearchIcon} from "@chakra-ui/icons";
-import {ButtonGroup,Button, Box, useStatStyles} from "@chakra-ui/react"
+import {PhoneIcon, SearchIcon} from "@chakra-ui/icons";
+import {ButtonGroup,Button, Box, useStatStyles, Text, Tooltip} from "@chakra-ui/react"
 import { Link, useNavigate } from 'react-router-dom';
 import { BsHandbag } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,6 @@ import { getAuth, signOut } from "firebase/auth";
 import { getSignOut } from "../../Redux/Authentication/Action";
 import { useEffect, useState } from "react";
 import { DrawerCart } from "../../Products/DrawerCart";
-
 
 
 
@@ -84,11 +83,10 @@ const Navbar =({handleChange})=>{
               
             <ButtonGroup gap='2'>
            {
-            isAuth?<Button onClick={handleLogOut} colorScheme='pink' ><FiUserCheck/>{userName}</Button>:<Link to={"/login"}><Button colorScheme='pink'>Log In</Button></Link> 
+            isAuth?<Tooltip label="Click to Log Out !" aria-label='A tooltip' bg='pink.400'><Button onClick={handleLogOut} colorScheme='pink' variant='ghost' ><FiUserCheck/><Text marginLeft="10px" fontSize="17px">{userName}</Text></Button></Tooltip>:<Link to={"/login"}><Button colorScheme='pink'>Log In</Button></Link> 
            }
-           <Link to={"/cart"}><Box><BsHandbag size={27}/></Box></Link>
+           <Link to={"/cart"}></Link>
               <DrawerCart/>
-          <div  style={{fontWeight:"700", fontSize:"18px" }}> 😃</div> 
           </ButtonGroup>
             </div>
             <div className={style.card3}>
