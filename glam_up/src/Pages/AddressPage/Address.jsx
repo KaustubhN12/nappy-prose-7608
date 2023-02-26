@@ -22,25 +22,66 @@ import {
   Stack,
   DrawerFooter,
   Switch,
+  Toast,
 } from "@chakra-ui/react";
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 
 const Address = () => {
 
+  const dispatch = useDispatch();
+  const cartData = useSelector((store) => {
+    console.log(store)
+   
+    return store.productReducer.cartData;
+    
+  });
+  const totalPrice = useSelector((store) => {
+    console.log("product",store)
+    return store.productReducer.totalPrice;
+  });
 
-  const [screen, setScreen] = useState("");
+  const totaldiscount = useSelector((store) => {
+    console.log("product", store);
+    return store.productReducer.totaldiscount;
+  });
+
+   console.log("iiiiii",+totaldiscount);
+   console.log(cartData);
+  // function DrawerExample() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
+  const [screen, setScreen] = useState("");
+  // const { isOpen, onOpen, onClose } = useDisclosure();
   const firstField = useRef();
 
 
+
+  // const { ItemCount, Totalprice, Totaldiscountprice } = useSelector((store) => {
+  //   console.log(store)
+  //   return {
+  //     ItemCount: store.CartReducer.ItemCount,
+  //     Totalprice: store.CartReducer.Totalprice,
+  //     Totaldiscountprice: store.CartReducer.Totaldiscountprice,
+  //   };
+  // });
+  // const { ItemCount, Totalprice, Totaldiscountprice } ;
   
+  const {
+    name = "watch",
+    img = "https://i.pinimg.com/236x/bc/47/18/bc47182aa08ac60cf4270d87961d3018.jpg",
+  } = cartData.length;
+
+  
+
   return (
     <SimpleGrid
       w={screen === "sm" ? "90%" : screen === "md" ? "80%" : "60%"}
       margin="auto"
       mt="30px"
-      mb="30px"
+      mb="160px"
     >
       <SimpleGrid
         display={screen === "sm" ? "grid" : "flex"}
@@ -91,7 +132,7 @@ const Address = () => {
             Add New Address
           </Heading>
 
-          {/* Drawer                 */}
+          {/* Drawer */}
 
           <Drawer
             isOpen={isOpen}
@@ -174,24 +215,43 @@ const Address = () => {
                             </Button> */}
                 {/* <Button w='100%' color={'white'} bg='#e80071'>Ship to this address</Button> */}
 
-                <button
-                  // onClick={handlePost}
-                  style={{
-                    width: "100%",
-                    color: "white",
-                    backgroundColor: "#e80071",
-                    padding: "18px",
-                    fontSize: "18px",
-                  }}
-                >
-                  Ship to this address
-                </button>
+                {/*                 
+                  <button
+                    // onClick={handlePost}
+                    style={{
+                      width: "100%",
+                      color: "white",
+                      backgroundColor: "#e80071",
+                      padding: "18px",
+                      fontSize: "18px",
+                    }}
+                  >
+                    Ship to this address
+                  </button> */}
+
+                <Link to="/payment">
+                  <button
+                    // onClick={handlePost}
+                    style={{
+                      width: "100%",
+                      color: "white",
+                      backgroundColor: "#e80071",
+                      padding: "18px",
+                      fontSize: "18px",
+                      marginRight: "90px",
+                    }}
+                  >
+                    Ship to this address
+                  </button>
+                </Link>
               </DrawerFooter>
             </DrawerContent>
           </Drawer>
         </SimpleGrid>
 
-        <Box width="230px">
+        <Box width="230px"
+          border="0px solid red">
+          
           <Accordion allowToggle>
             <AccordionItem>
               <h2>
@@ -202,11 +262,12 @@ const Address = () => {
                     justifyContent="space-between"
                     flex="1"
                     textAlign="left"
+                  
                   >
                     <Heading as="h1" fontSize="16px">
                       Bag
                     </Heading>
-                    {/* {<Heading fontSize="14px">{ItemCount} Items</Heading>} */}
+                    {<Heading fontSize="14px">{cartData.length} Items</Heading>}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -234,23 +295,34 @@ const Address = () => {
                     justifyContent="space-between"
                     flex="1"
                     textAlign="left"
+                    // border="1px solid red"
                   >
                     <Heading as="h1" fontSize="16px">
                       Price Details
                     </Heading>
-                    {/* {<Heading fontSize="14px">₹{Totaldiscountprice}</Heading>} */}
+                    {/* {<Heading fontSize="14px">₹{totalPrice}</Heading>} */}
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      {/* <Text>Bag MRP ({cartData.length} items)</Text>
+                      <Text>₹{totalPrice}</Text> */}
+                    </Box>
+                    {<Heading fontSize="14px">Rs{totalPrice+50}</Heading>}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
+
               <AccordionPanel pb={4}>
                 <Text display={"flex"} justifyContent="space-between">
-                  {/* <span>Bag MRP ({ItemCount} items)</span> */}
-                  {/* <span>₹{Totalprice}</span> */}
+                  <span>Bag MRP ({cartData.length} items)</span>
+                  <span>Rs{totalPrice}</span>
                 </Text>
                 <Text display={"flex"} justifyContent="space-between">
                   <span>After Discount</span>
-                  {/* <span>₹{Totaldiscountprice}</span> */}
+                  <span>Rs{totalPrice - 100}</span>
                 </Text>
                 <Text display={"flex"} justifyContent="space-between">
                   <span>Saving At this Time</span>
@@ -261,8 +333,13 @@ const Address = () => {
                       color: "#2de02d",
                     }}
                   >
-                    {/* {Totalprice - Totaldiscountprice} */}
+                    {/* {totalPrice - totaldiscount} */}
+                    Rs.100
                   </span>
+                </Text>
+                <Text display={"flex"} justifyContent="space-between">
+                  <span>Shipping</span>
+                  <span>Rs.50</span>
                 </Text>
                 <Heading
                   display={"flex"}
@@ -270,7 +347,7 @@ const Address = () => {
                   as="h1"
                   fontSize="16px"
                 >
-                  {/* <span>You Pay</span> <span>₹{Totaldiscountprice}</span>{" "} */}
+                  <span>You Pay</span> <span>Rs{totalPrice +50}</span>{" "}
                 </Heading>
               </AccordionPanel>
             </AccordionItem>

@@ -65,6 +65,12 @@ export const DrawerCart = () => {
         // };
         const handleDelete=(el)=>{
             dispatch(removeCartData(el)) 
+            toast({
+              title: `Product removed Successfully`,
+              status: 'success',
+              duration: 4000,
+              isClosable: true,
+            })
          }
 
 
@@ -122,13 +128,17 @@ export const DrawerCart = () => {
             <Box border='1px solid rgba(82, 79, 79, 0.249)' borderRadius='6px' mt='10px' p='2px'>
             <Box><Text as='b' fontSize='xl'>Price Details</Text></Box>
             <Box  display='flex' justifyContent='space-between' alignItems='center'><Text>Bag MRP ({cartData.length} items)</Text><Text>₹{totalPrice}</Text></Box>
-            <Box  display='flex' justifyContent='space-between' alignItems='center'><Text>Shipping</Text><Text>₹50</Text></Box>
-            <Box as='b' display='flex' justifyContent='space-between' alignItems='center'><Text fontSize='xl'> Grand Total:</Text><Text>₹{totalPrice+50}</Text></Box>
+            {/* <Box  display='flex' justifyContent='space-between' alignItems='center'><Text>Shipping</Text><Text>₹50</Text></Box> */}
+            <Box as='b' display='flex' justifyContent='space-between' alignItems='center'><Text fontSize='xl'> Grand Total:</Text><Text>₹{totalPrice}</Text></Box>
             </Box>
         </Box>}
             </DrawerBody>
             <DrawerFooter>
-                {cartData.length >0 &&  <Link  to='/payment'><Button colorScheme='pink' w='150px'>Proceed <HiArrowRight/></Button></Link>}
+
+                {cartData.length >0 &&  <Link  to='/address'><Button colorScheme='pink' w='150px' onClick={onClose}>Proceed <HiArrowRight/></Button></Link>}
+
+              
+
            
                 </DrawerFooter>
                 </DrawerContent>

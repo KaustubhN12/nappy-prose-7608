@@ -1,6 +1,6 @@
 import style from "./Navbar.module.css"
 import {PhoneIcon, SearchIcon} from "@chakra-ui/icons";
-import {ButtonGroup,Button, Box, useStatStyles, Text, Tooltip} from "@chakra-ui/react"
+import {ButtonGroup,Button, Box, useStatStyles, Text, Tooltip, HStack} from "@chakra-ui/react"
 import { Link, useNavigate } from 'react-router-dom';
 import { BsHandbag } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,7 +28,9 @@ const Navbar =({handleChange})=>{
     });  
     navigate(0)
   }
-
+  const cartNumber = useSelector(store=> {
+    return  (store.productReducer.cartData)
+ });
 
     return (
        < div >
@@ -86,7 +88,7 @@ const Navbar =({handleChange})=>{
             isAuth?<Tooltip label="Click to Log Out !" aria-label='A tooltip' bg='pink.400'><Button onClick={handleLogOut} colorScheme='pink' variant='ghost' ><FiUserCheck/><Text marginLeft="10px" fontSize="17px">{userName}</Text></Button></Tooltip>:<Link to={"/login"}><Button colorScheme='pink'>Log In</Button></Link> 
            }
            <Link to={"/cart"}></Link>
-              <DrawerCart/>
+             <Box display='flex'> <DrawerCart/><Text className={style.cartNumber}>{cartNumber.length}</Text></Box>
           </ButtonGroup>
             </div>
             <div className={style.card3}>

@@ -28,6 +28,26 @@ function PaymentPage() {
   // const { ItemCount, Totalprice, Totaldiscountprice } = useSelector(
   //   (state) => state.CartReducer
   // );
+
+  // const dispatch = useDispatch();
+  const cartData = useSelector((store) => {
+    console.log(store);
+
+    return store.productReducer.cartData;
+  });
+  const totalPrice = useSelector((store) => {
+    console.log("product", store);
+    return store.productReducer.totalPrice;
+  });
+
+  console.log(cartData);
+  // function DrawerExample() {
+  // const { isOpen, onOpen, onClose } = useDisclosure();
+  // const btnRef = React.useRef();
+  const [screen, setScreen] = useState("");
+  // const { isOpen, onOpen, onClose } = useDisclosure();
+  // const firstField = useRef();
+
   const [method, setMethod] = useState("Card");
 
   return (
@@ -53,7 +73,7 @@ function PaymentPage() {
       margin="auto"
       justifyContent="space-around"
       marginTop="20px"
-      marginBottom="20px"
+      marginBottom="110px"
       padding="10px"
     >
       <Flex
@@ -260,7 +280,6 @@ function PaymentPage() {
       </Flex>
       <Flex
         direction="column"
-       
         border="0px solid yellow"
         margin="auto"
         marginTop="-8"
@@ -289,7 +308,7 @@ function PaymentPage() {
                     <Heading as="h1" fontSize="16px">
                       Bag
                     </Heading>
-                    {/* {<Heading fontSize="14px">{ItemCount} Items</Heading>} */}
+                    {<Heading fontSize="14px">{cartData.length} Items</Heading>}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -316,23 +335,32 @@ function PaymentPage() {
                     <Heading as="h1" fontSize="16px">
                       Price Details
                     </Heading>
-                    {/* {<Heading fontSize="14px">₹{Totaldiscountprice}</Heading>} */}
+                    {<Heading fontSize="14px">Rs{totalPrice - 100}</Heading>}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
                 <Text display={"flex"} justifyContent="space-between">
-                  {/* <span>Bag MRP ({ItemCount} items)</span> */}
-                  {/* <span>₹{Totalprice}</span> */}
+                  <span>Bag MRP ({cartData.length} items)</span>
+                  <span>Rs{totalPrice}</span>
                 </Text>
                 <Text display={"flex"} justifyContent="space-between">
                   <span>After Discount</span>
-                  {/* <span>₹{Totaldiscountprice}</span> */}
+                  <span>Rs{totalPrice - 100}</span>
                 </Text>
                 <Text display={"flex"} justifyContent="space-between">
                   <span>Saving at this Time</span>
-                  {/* <span color="green">{Totalprice - Totaldiscountprice}</span> */}
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      color: "#2de02d",
+                    }}
+                  >
+                   
+                    Rs.100
+                  </span>
                 </Text>
                 <Heading
                   display={"flex"}
@@ -340,7 +368,7 @@ function PaymentPage() {
                   as="h1"
                   fontSize="16px"
                 >
-                  {/* <span>You Pay</span> <span>₹{Totaldiscountprice}</span>{" "} */}
+                  <span>You Pay</span> <span>Rs.{totalPrice - 100}</span>{" "}
                 </Heading>
               </AccordionPanel>
             </AccordionItem>
