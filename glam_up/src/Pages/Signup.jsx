@@ -32,10 +32,9 @@ export default function SignupCard() {
   const [f_password, setF_password] = useState("");
   const [f_name, setF_name] = useState("");
   const [l_name, setL_name] = useState("");
-  const [change,setChange] = useState(false);
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
   const toast = useToast();
+  const dispatch = useDispatch();
 
   const handle = (e) => {
     // if (f_name === "" && l_name === "") {
@@ -49,17 +48,12 @@ export default function SignupCard() {
     // } else if (f_password === "") {
     //   alert("Please enter Password !");
     // }
-    // let arr = JSON.parse(localStorage.getItem("user")) || [];
-    // arr.push(log_user);
-    // localStorage.setItem("user", JSON.stringify(arr));
-    // <Navigate to="/login" />
-    // navigate("/login");
-    // console.log(log_user)
     createUserWithEmailAndPassword(Auth,f_email,f_password).then(async(res)=>{
       const user = res.user
      await updateProfile(user,{
         displayName:f_name,
-      })
+      });
+     dispatch(getlogin(user.displayName));
       toast({
         title: `Welcome, ${f_name}`,
         description: "We've created your account for you.",
@@ -74,14 +68,9 @@ export default function SignupCard() {
     setF_name("");
     setF_password("");
     setL_name("");
-    setChange(!change);
     navigate("/");
   };
-
-  useEffect(()=>{
-    
-  },[change])
-
+ 
   return (
     <Flex
       minH={"100vh"}

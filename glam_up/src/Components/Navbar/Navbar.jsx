@@ -1,25 +1,34 @@
-//import { AuthContext } from "../AuthContext/AuthContext";
-//import { useContext } from "react";
 import style from "./Navbar.module.css"
 import {SearchIcon} from "@chakra-ui/icons";
-import {ButtonGroup,Button, Box} from "@chakra-ui/react"
-import { Link } from 'react-router-dom';
+import {ButtonGroup,Button, Box, useStatStyles} from "@chakra-ui/react"
+import { Link, useNavigate } from 'react-router-dom';
 import { BsHandbag } from "react-icons/bs";
-
-import {DrawerCart} from "../../Products/DrawerCart";
-
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FiUserCheck } from "react-icons/fi";
+import { getAuth, signOut } from "firebase/auth";
+import { getSignOut } from "../../Redux/Authentication/Action";
+import { useEffect, useState } from "react";
 
-//import CartDrawer from '../CartPage/Cart';
-//import Signup from "../Pages/Signup";
 
 
-const Navbar =()=>{
+
+
+const Navbar =({handleChange})=>{
 
   const isAuth = useSelector((store)=>store.AuthReducer.isAuth);
   const userName = useSelector((store)=>store.AuthReducer.userName);
-  console.log(isAuth,userName);
+  const auth = getAuth();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    signOut(auth).then(() => {
+      dispatch(getSignOut());
+    }).catch((error) => {
+      console.log(error)
+    });  
+    navigate(0)
+  }
+
 
     return (
        < div >
@@ -74,7 +83,7 @@ const Navbar =()=>{
               
             <ButtonGroup gap='2'>
            {
-            isAuth?<Link to={"/login"}><Button colorScheme='pink' disabled><FiUserCheck/>{userName}</Button></Link>:<Link to={"/login"}><Button colorScheme='pink'>Log In</Button></Link> 
+            isAuth?<Button onClick={handleLogOut} colorScheme='pink' ><FiUserCheck/>{userName}</Button>:<Link to={"/login"}><Button colorScheme='pink'>Log In</Button></Link> 
            }
            <Link to={"/cart"}><Box><BsHandbag size={27}/></Box></Link>
               <DrawerCart/>

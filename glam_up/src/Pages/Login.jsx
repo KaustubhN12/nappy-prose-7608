@@ -22,25 +22,14 @@ import { useNavigate } from "react-router-dom";
 import { Auth } from "../firebase";
 import { getlogin } from "../Redux/Authentication/Action";
 
-// let data = JSON.parse(localStorage.getItem("user"));
-
 export default function SimpleCard() {
   const [f_email, setF_email] = useState("");
   const [f_password, setF_password] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const toast = useToast()
-  // console.log(data);
 
   const handle = () => {
-    // data.forEach((e) => {
-    //   if (f_email === e.email && f_password === e.password) {
-    //     alert("Login successful");
-    //     // navigate("/");
-    //   } else {
-    //     alert("Login failed");
-    //   }
-    // });
     signInWithEmailAndPassword(Auth,f_email,f_password).then(async(res)=>{
       dispatch(getlogin(res.user.displayName));
       // toast({
