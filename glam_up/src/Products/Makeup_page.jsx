@@ -251,7 +251,6 @@ useEffect(()=>{
          style={{
         
           marginBottom: '1.5rem',
-          position: 'relative',
           height: '440px',
           minWidth: '270px',
           width: '33.33%',
@@ -262,7 +261,7 @@ useEffect(()=>{
              }}
         > 
            <Link  to= {`${location.pathname}/${el.id}`} key={el.id}>
-       <Image src={el.Image}></Image>
+       <Image src={el.Image} h='65%'></Image>
       <VStack>
           <Heading
         as={"p"}
@@ -282,7 +281,7 @@ useEffect(()=>{
               <Text fontSize='md' color='gray'>{el.starcount} ({el.ratingcount} )</Text>
       </VStack> 
    </Link>
-          <Flex  mt='15px'  gap="2" justifyContent="center" display='none' className='likeAndCartButton'>
+        <Box display='flex'   mt='15px'  gap="2" justifyContent="center"  className='likeAndCartButton'>
         <Button  bg="white" w='20%'>
           <BsHeart color='#FC2779'/>
         </Button>
@@ -295,9 +294,9 @@ useEffect(()=>{
           p='10px'
           onClick={addToBag}
           >
-          Add to bag
+          View Product
           </Button>
-          </Flex>
+          </Box>
           </Box>
          
           ))}

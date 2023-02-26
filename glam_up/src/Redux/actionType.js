@@ -1,7 +1,8 @@
 export const PRODUCT_REQUEST = "PRODUCT_REQUEST";
 export const PRODUCT_FAILURE = "PRODUCT_FAILURE";
 export const GET_PRODUCT_SUCCESS = "GET_PRODUCT_SUCCESS";
-
+export const CART_DATA_ADD = "CART_DATA_ADD";
+export const CART_DATA_REMOVE = "CART_DATA_REMOVE";
 
 
  //............cart page............

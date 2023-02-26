@@ -5,8 +5,12 @@ import {SearchIcon} from "@chakra-ui/icons";
 import {ButtonGroup,Button, Box} from "@chakra-ui/react"
 import { Link } from 'react-router-dom';
 import { BsHandbag } from "react-icons/bs";
+
+import {DrawerCart} from "../../Products/DrawerCart";
+
 import { useSelector } from "react-redux";
 import { FiUserCheck } from "react-icons/fi";
+
 //import CartDrawer from '../CartPage/Cart';
 //import Signup from "../Pages/Signup";
 
@@ -73,6 +77,7 @@ const Navbar =()=>{
             isAuth?<Link to={"/login"}><Button colorScheme='pink' disabled><FiUserCheck/>{userName}</Button></Link>:<Link to={"/login"}><Button colorScheme='pink'>Log In</Button></Link> 
            }
            <Link to={"/cart"}><Box><BsHandbag size={27}/></Box></Link>
+              <DrawerCart/>
           <div  style={{fontWeight:"700", fontSize:"18px" }}> 😃</div> 
           </ButtonGroup>
             </div>
