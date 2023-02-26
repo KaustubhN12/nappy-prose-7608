@@ -175,3 +175,16 @@
     color: #fc3581;
     cursor: pointer;
   }
+.cartNumber{
+  width: 22px;
+  height: 22px;
+  background-color: #fc3581;
+  color: #ddd;
+  border-radius: 50%;
+  padding: 3px;
+  margin-left: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+
+}

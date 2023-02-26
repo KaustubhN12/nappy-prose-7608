@@ -65,6 +65,12 @@ export const DrawerCart = () => {
         // };
         const handleDelete=(el)=>{
             dispatch(removeCartData(el)) 
+            toast({
+              title: `Product removed Successfully`,
+              status: 'success',
+              duration: 4000,
+              isClosable: true,
+            })
          }
 
 
@@ -128,7 +134,11 @@ export const DrawerCart = () => {
         </Box>}
             </DrawerBody>
             <DrawerFooter>
-                {cartData.length >0 &&  <Link  to='/address'><Button colorScheme='pink' w='150px'>Proceed <HiArrowRight/></Button></Link>}
+
+                {cartData.length >0 &&  <Link  to='/address'><Button colorScheme='pink' w='150px' onClick={onClose}>Proceed <HiArrowRight/></Button></Link>}
+
+              
+
            
                 </DrawerFooter>
                 </DrawerContent>

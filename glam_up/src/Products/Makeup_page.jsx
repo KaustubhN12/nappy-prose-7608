@@ -9,6 +9,7 @@ import {BsHeart} from "react-icons/bs"
 import {GrDown} from 'react-icons/gr'
 import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
+import { addCartData } from '../Redux/action';
 
  const Loading=()=>{
         return(
@@ -143,6 +144,7 @@ const  handleFilterStar = (ele)=> {
 
   //========= Add To Cart ================ //
 const addToBag=()=>{
+ 
   toast({
     title: `Product added to bag`,
     status: 'success',
@@ -262,7 +264,7 @@ useEffect(()=>{
              }}
         > 
            <Link  to= {`${location.pathname}/${el.id}`} key={el.id}>
-       <Image src={el.Image} h='65%'></Image>
+       <Image src={el.Image} w='92%'></Image>
       <VStack>
           <Heading
         as={"p"}
@@ -282,7 +284,7 @@ useEffect(()=>{
               <Text fontSize='md' color='gray'>{el.starcount} ({el.ratingcount} )</Text>
       </VStack> 
    </Link>
-        <Box display='flex'   mt='15px'  gap="2" justifyContent="center"  className='likeAndCartButton'>
+        <Flex   mt='35px'  gap="2" justifyContent="center"   display='none' className='likeAndCartButton'>
         <Button  bg="white" w='20%'>
           <BsHeart color='#FC2779'/>
         </Button>
@@ -295,12 +297,11 @@ useEffect(()=>{
           p='10px'
           onClick={addToBag}
           >
-          View Product
+          Add To Cart
           </Button>
+          </Flex>
           </Box>
-          </Box>
-         
-          ))}
+       ))}
   </SimpleGrid>
   </Box>
    </VStack>
