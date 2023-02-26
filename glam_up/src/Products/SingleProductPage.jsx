@@ -3,7 +3,7 @@ import { Box,Text, HStack,VStack,Divider,Center,Tooltip,Collapse,Button,useDiscl
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {  useLocation, useParams } from 'react-router-dom';
-import {  getProduct, hairProduct, makeupProduct } from '../Redux/action';
+import {  addCartData, getProduct} from '../Redux/action';
 import {FaProductHunt} from "react-icons/fa"
 import { AiOutlineRollback} from "react-icons/ai"
 import {CiLocationOn} from "react-icons/ci";
@@ -20,12 +20,18 @@ const SingleProductPage = () => {
         const data = useSelector(store=> {
            return  (store.productReducer.product)
         });
-       
-    let [currimage,setcurrImage]=useState(data.img2);
+   // console.log("data",data)
+    const addedData = useSelector(store =>{
+      return (store.productReducer.cartData)
+    })   
+    let [currimage,setcurrImage]=useState(data.Image);
    
-    const handleclick=(data)=>{
-
+    const handleAddToCart=()=>{
+        
+           dispatch(addCartData(data))
+         //  console.log("addedData",addedData);
     }
+    
     function CollapseEx() {
         const { isOpen, onToggle } = useDisclosure()
       
@@ -89,7 +95,7 @@ const SingleProductPage = () => {
    useEffect(()=>{
     dispatch(getProduct(location.pathname))
    },[])
-
+  // console.log("data",data)
   return ( 
     <Box p='20px 0px' backgroundColor='rgb(243,243,243)' >
         <Box height={'100%'} width='90%' h='450px'
@@ -108,8 +114,8 @@ const SingleProductPage = () => {
                      </VStack>
                      <Box  padding='10px'  className='hoverimage'>
 
-                              <Image src={currimage}></Image>
-
+                              {/* <Image src={currimage} h='90%' alt='.'></Image> */}
+                              <img src={currimage} alt="hello" srcset="" width={'80%'} />
                              {/* <ReactImageMagnify {...{
                             smallImage: {
                                     alt: 'image',
@@ -138,7 +144,7 @@ const SingleProductPage = () => {
                  <Text color='gray' fontSize='18px' >inclusive of all taxes</Text>
                 
                     <HStack mt='50px' width='100%' spacing={10} >
-                    <Box display='grid' width={'40%'}><button  onClick={()=>handleclick(data)}  className='addToBag'> Add To Bag</button></Box>
+                    <Box display='grid' width={'40%'}><button  onClick={handleAddToCart}  className='addToBag'> Add To Bag</button></Box>
                     <Center height='130px'></Center><Box><HStack><CiLocationOn size='25px' color='gray'/><Text fontSize='18px' color='gray' fontWeight='500'>Delivery Options</Text></HStack>
                     <Box display='flex'> <input className='enterPincode' placeholder='Enter Pincode'  /><button className='check'>Check</button>
                      </Box></Box>

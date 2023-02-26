@@ -3,20 +3,30 @@ import { GET_PRODUCT_SUCCESS,PRODUCT_FAILURE, PRODUCT_REQUEST ,cartDataLoading,
   cartDataError,
   deleteLoading,
   deleteSuccess,
-  deleteError,} from "./actionType"
+  deleteError,
+  CART_DATA_REMOVE,
+  CART_DATA_ADD,} from "./actionType"
 
 const initialState ={
     isLoading:false,
     isError:false,
-    product:[]
+    product:[],
+    cartData:[],
+    totalPrice:0
 }
 export const reducer = (state=initialState, {type,payload}) =>{
   switch(type){
     case PRODUCT_REQUEST : return {...state ,isLoading:true }
     case GET_PRODUCT_SUCCESS : return {...state , isLoading:false, product:payload}
- 
     case PRODUCT_FAILURE : return {...state ,isError:true }
-  
+    case CART_DATA_ADD: return {...state,cartData: [...state.cartData, payload],totalPrice: state.totalPrice + payload.price}
+    case CART_DATA_REMOVE:
+    return {
+        ...state,
+        cartData: [...state.cartData.filter((el)=> el.id = !payload.id)],
+        totalPrice: state.totalPrice - payload.price
+       };
+   
     default : return state;
     }
   }
