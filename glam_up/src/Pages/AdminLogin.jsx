@@ -1,52 +1,65 @@
 import {
-  Flex,
-  Box,
-  FormControl,
-  FormLabel,
-  Input,
-  Checkbox,
-  Stack,
-  Link,
-  Button,
-  Heading,
-  Text,
-  Center,
-  useColorModeValue,
-  useToast,
-} from "@chakra-ui/react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { Auth } from "../firebase";
-import { getlogin } from "../Redux/Authentication/Action";
+    Flex,
+    Box,
+    FormControl,
+    FormLabel,
+    Input,
+    Checkbox,
+    Stack,
+    Link,
+    Button,
+    Heading,
+    Text,
+    Center,
+    useColorModeValue,
+    useToast,
+    Highlight,
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+    Wrap,
+    WrapItem,
+  } from "@chakra-ui/react";
+  import { useState } from "react";
+  import { FcGoogle } from "react-icons/fc";
+  import { useDispatch } from "react-redux";
+  import { useNavigate } from "react-router-dom";
 
-export default function SimpleCard() {
+const AdminLogin = () => {
+
   const [f_email, setF_email] = useState("");
   const [f_password, setF_password] = useState("");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const toast = useToast()
-
+  const toast = useToast();
+  const statuses = ['success', 'error', 'warning', 'info'];
+  
   const handle = () => {
-    signInWithEmailAndPassword(Auth,f_email,f_password).then(async(res)=>{
-      dispatch(getlogin(res.user.displayName));
-      toast({
-        position: 'bottom-left',
-        render: () => (
-          <Box color='white' p={3} bg='pink.400'>
-            {`Welcome Back, ${res.user.displayName} 😍`}
-          </Box>
-        ),
-      })
-    }).catch((err)=>{
-      console.log(err)
-    })
 
-    setF_email("");
-    setF_password("");
-    navigate("/")
+    if(f_email=="kaustubh@gmail.com" && f_password=="1234"){
+        toast({
+            position: 'bottom-left',
+            render: () => (
+              <Box color='white' p={3} bg='pink.400'>
+                {`Welcome Admin 😍`}
+              </Box>
+            ),
+          })
+          navigate("/admin");
+          return;
+    }
+           toast({
+            position: 'bottom',
+            render: () => (
+              <Box color='white' p={3} bg='red.400'>
+               Incorrect Email Id or Password !!
+              </Box>
+            ),
+          })
+      setF_email("");
+      setF_password("");
+    
+console.log(f_email,f_password)
   };
 
   return (
@@ -58,11 +71,14 @@ export default function SimpleCard() {
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
-          <Heading fontSize={"3xl"}>Sign in to your account</Heading>
-          <Text fontSize={"lg"} color={"#fc2779;"} w={"25rem"}>
-            Track your deliveries, curate a wishlist, and unlock exclusive
-            benefits
-          </Text>
+        <Heading lineHeight='tall' fontSize={"3xl"}>
+            <Highlight
+            query='Admin'
+             styles={{ px: '2', py: '1', rounded: 'full', bg: 'pink.200' }}
+             >
+          Sign In To Your Admin Account
+        </Highlight>
+        </Heading>
         </Stack>
         <Box
           rounded={"lg"}
@@ -107,12 +123,9 @@ export default function SimpleCard() {
                 Sign in
               </Button>
               <Link href="./signup" color={"#fc2779;"}>
-                  Sign Up
+                  Sign Up as User
                 </Link>
               <Stack>
-              <Link href="./admin-login" color={"#fc2779;"}>
-                 Login as Admin
-                </Link>
                 <Button
                   w={"full"}
                   maxW={"md"}
@@ -129,5 +142,7 @@ export default function SimpleCard() {
         </Box>
       </Stack>
     </Flex>
-  );
+  )
 }
+
+export default AdminLogin

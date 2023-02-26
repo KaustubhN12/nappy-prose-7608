@@ -1,5 +1,6 @@
 import { ADMIN_PRODUCT_FAILURE, ADMIN_PRODUCT_REQUEST, DELETE_PRODUCT_REQUEST, GET_HAIRPRODUCT_REQUEST, GET_MAKEUPPRODUCT_REQUEST, GET_SKINPRODUCTS_REQUEST, POST_PRODUCT_REQUEST } from "./ActionType";
 import axios from "axios";
+import { assignRef } from "@chakra-ui/react";
 
 export const adminProductRequst = () => {
     return {type:ADMIN_PRODUCT_REQUEST}
@@ -56,10 +57,11 @@ export const getHairProduct = (dispatch) => {
     })
 }
 
-export const postProduct = (payload,category) => (dispatch) => {
+export const postProduct = (payload) => (dispatch) => {
     dispatch(adminProductRequst());
-   return axios.post(`https://api-nykaa-database.vercel.app/${category}`,payload).then((res)=>{
+   return axios.post("https://api-nykaa-database.vercel.app/makeup",payload).then((res)=>{
         dispatch(postProductSuccess());
+        console.log(res.data)
     }).catch((err)=> {
         dispatch(adminProductFailure());
     })
