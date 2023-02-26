@@ -88,7 +88,7 @@ const Navbar =({handleChange})=>{
             isAuth?<Tooltip label="Click to Log Out !" aria-label='A tooltip' bg='pink.400'><Button onClick={handleLogOut} colorScheme='pink' variant='ghost' ><FiUserCheck/><Text marginLeft="10px" fontSize="17px">{userName}</Text></Button></Tooltip>:<Link to={"/login"}><Button colorScheme='pink'>Log In</Button></Link> 
            }
            <Link to={"/cart"}></Link>
-             <Box display='flex'> <DrawerCart/><Text className={style.cartNumber}>{cartNumber.length}</Text></Box>
+             <Box display='flex'> <DrawerCart/>{cartNumber.length!=0?<Text className={style.cartNumber}>{cartNumber.length}</Text>:""}</Box>
           </ButtonGroup>
             </div>
             <div className={style.card3}>

@@ -729,7 +729,7 @@ const Home = () => {
     ],
   };
   return (
-    <div className="parent-div" style={{marginTop:"20px"}}>
+    <div className="parent-div" style={{marginTop:"20px",marginBottom:"20px"}}>
       <Box
         marginLeft={["0px","0px","30px"]}
         marginBottom="40px"
