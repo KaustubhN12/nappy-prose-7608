@@ -111,11 +111,7 @@ export const DrawerCart = () => {
               <button onClick={()=>handleDelete(el)}><RiDeleteBin5Line/></button>
               </HStack>
             <Box display='flex' justifyContent='space-between' alignItems='center'> 
-                {/* <HStack>
-                  <button colorScheme="red" variant="outline" onClick={()=>handleDecrement(el)}>-</button>
-                  <Text> {"  "+el.quantity+"  "}</Text>
-                  <button colorScheme="green" variant="outline" disabled={el.quantity >= 5}  onClick={()=>handleIncrement(el)}>+</button>
-                </HStack> */}
+               
                 <Box></Box>
                 <Box><Text as='b' align='right'>₹{(el.price)}</Text></Box>
             </Box><hr/>
