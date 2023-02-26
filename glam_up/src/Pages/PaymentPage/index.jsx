@@ -310,7 +310,7 @@ function PaymentPage() {
                     </Heading>
                     {<Heading fontSize="14px">{cartData.length} Items</Heading>}
                   </Box>
-                  <AccordionIcon />
+                  {/* <AccordionIcon /> */}
                 </AccordionButton>
               </h2>
               <AccordionPanel
