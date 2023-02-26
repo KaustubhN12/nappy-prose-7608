@@ -16,8 +16,19 @@ import { InfoIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
 
 import { CardImages } from "./Data/CardImages";
+import { Link } from "react-router-dom";
 
 const CreditCard = () => {
+
+  const cartData = useSelector((store) => {
+    console.log(store);
+
+    return store.productReducer.cartData;
+  });
+  const totalPrice = useSelector((store) => {
+    console.log("product", store);
+    return store.productReducer.totalPrice;
+  });
   // const { Totaldiscountprice } = useSelector((state) => state.CartReducer);
   return (
     <Flex
@@ -55,7 +66,7 @@ const CreditCard = () => {
       <Input placeholder="Card Number" type="number" isRequired={true} />
       <Flex gap="2">
         <Input
-          style={{ color: "pink" }}
+          style={{ color: "red" }}
           placeholder="Expiry (MM/YY)"
           type="text"
           isRequired={true}
@@ -82,21 +93,25 @@ const CreditCard = () => {
           Know more
         </Text>
       </Flex>
-      <Button
-        color="#FFFFFF"
-        fontFamily="Inter"
-        fontSize="16px"
-        fontWeight="600"
-        height="49px"
-        padding="12px 12px 12px 12px"
-        backgroundColor="#E80071"
-        _hover={{
-          color: "white",
-          backgroundColor: "#E80080",
-        }}
-      >
-        {/* Pay ₹ {Totaldiscountprice} */}
-      </Button>
+
+      <Link to="/ordersuccessfull">
+        <Button
+          color="#FFFFFF"
+          fontFamily="Inter"
+          fontSize="16px"
+          fontWeight="600"
+          height="49px"
+          width="410px"
+          padding="12px 12px 12px 12px"
+          backgroundColor="#E80071"
+          _hover={{
+            color: "white",
+            backgroundColor: "#E80080",
+          }}
+        >
+          Pay ₹ {totalPrice - 100}
+        </Button>
+      </Link>
     </Flex>
   );
 };
