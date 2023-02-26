@@ -90,7 +90,6 @@ input[type=checkbox]#pink {
 .showImage{
     margin-top: 30px;
 }
-
 .readMore{
      display: flex;
      justify-content: center;
@@ -98,4 +97,8 @@ input[type=checkbox]#pink {
     color: #fc2779;
     background-color: aliceblue;
     font-size: x-large;
+}
+
+.cartPrice div{
+    padding: 10px 2px;
 }

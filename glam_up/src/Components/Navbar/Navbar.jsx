@@ -8,8 +8,9 @@ import { FiUserCheck } from "react-icons/fi";
 import { getAuth, signOut } from "firebase/auth";
 import { getSignOut } from "../../Redux/Authentication/Action";
 import { useEffect, useState } from "react";
-//import CartDrawer from '../CartPage/Cart';
-//import Signup from "../Pages/Signup";
+
+
+
 
 
 const Navbar =({handleChange})=>{
@@ -85,6 +86,7 @@ const Navbar =({handleChange})=>{
             isAuth?<Button onClick={handleLogOut} colorScheme='pink' ><FiUserCheck/>{userName}</Button>:<Link to={"/login"}><Button colorScheme='pink'>Log In</Button></Link> 
            }
            <Link to={"/cart"}><Box><BsHandbag size={27}/></Box></Link>
+              <DrawerCart/>
           <div  style={{fontWeight:"700", fontSize:"18px" }}> 😃</div> 
           </ButtonGroup>
             </div>

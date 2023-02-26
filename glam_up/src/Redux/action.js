@@ -1,7 +1,10 @@
 import {
+   CART_DATA_ADD,
+    CART_DATA_REMOVE,
     GET_PRODUCT_SUCCESS,
     PRODUCT_FAILURE,
     PRODUCT_REQUEST,
+    
   } from "./actionType";
   import {
     cartDataLoading,
@@ -21,15 +24,19 @@ import {
   export const Productfalure = () => {
     return { type: PRODUCT_FAILURE };
   };
-  
-
+  export const addCartData =(payload)=>{
+      return {type: CART_DATA_ADD , payload}
+  }
+  export const removeCartData =(payload)=>{
+    return {type: CART_DATA_REMOVE , payload}
+}
   export const getProduct = (location) => (dispatch)=>{
     const url= `https://api-nykaa-database.vercel.app${location}`
       dispatch(ProductRequest());
       axios.get(url)
       .then((res)=>{
            dispatch(getProductSuccess(res.data));
-           console.log(res.data)
+         //  console.log(res.data)
       }).catch((error)=>{
         dispatch(Productfalure())
       })
