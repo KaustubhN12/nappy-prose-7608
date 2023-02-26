@@ -4,10 +4,11 @@ import style from "./Navbar.module.css"
 import MenuBar from "./MenuBar"
 import { Link } from "react-router-dom"
 const SubNavbar = ()=>{
-    const Styles = {fontWeight:"600"  }
+    const Styles = {color:"#718096",fontFamily:"sans-serif" }
     return (
-        <Box w="100%" border="0px solid red" className={style.SubNavbar}  >
-        <HStack  className={styled.SubNavbar} paddingLeft="60px"  paddingRight="60px" spacing='20px' justify="space-around" alignItems="center" display="flex" >
+        <Box w="100%" border="0px solid red" className={style.SubNavbar} boxShadow='md' >
+          <hr />
+        <HStack  className={styled.SubNavbar} paddingLeft="60px"  paddingRight="60px" spacing='20px' justify="space-around" alignItems="center" display="flex" paddingTop="5px" paddingBottom="5px">
           
           <div class={style.dropdown}>
           <Link to={"/makeup"}>

@@ -43,7 +43,7 @@ export default function SimpleCard() {
         position: 'bottom-left',
         render: () => (
           <Box color='white' p={3} bg='pink.400'>
-            {`Welcome, ${res.user.displayName}`}
+            {`Welcome Back, ${res.user.displayName}`}
           </Box>
         ),
       })
