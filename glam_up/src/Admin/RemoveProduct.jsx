@@ -40,45 +40,30 @@ const RemoveProduct = ({ children }) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const dispatch = useDispatch();
-    const makeUpProduct = useSelector((store)=>store.adminReducer.makeUpProduct);
-    const skinProduct = useSelector((store)=>store.adminReducer.skinProduct);
-    const hairProduct = useSelector((store)=>store.adminReducer.hairProduct);
+    const makeUpProduct = useSelector((store)=>store.AdminReducer.makeUpProduct);
+    const skinProduct = useSelector((store)=>store.AdminReducer.skinProduct);
+    const hairProduct = useSelector((store)=>store.AdminReducer.hairProduct);
     const [tabIndex, setTabIndex] = useState(0);
 
-    useEffect(()=>{
-     dispatch(getMakeUpProduct);
-     dispatch(getSkinProduct);
-     dispatch(getHairProduct);
-    },[])
+    // useEffect(()=>{
+    //  dispatch(getMakeUpProduct);
+    //  dispatch(getSkinProduct);
+    //  dispatch(getHairProduct);
+    // },[])
 
     const handleDelete = (id) => {
-      let category=tabIndex==0?"makeup":tabIndex==1?"skin":"hair"
-      console.log(category)
+      let category=tabIndex==0?"makeup":tabIndex==1?"skin":"hair";
       dispatch(deleteProduct(id,category)).then((res)=>{
          if(category=="makeup"){
           dispatch(getMakeUpProduct);
-         }else if (category=="skin"){
-          dispatch(getSkinProduct);
-         }else{
-          dispatch(getHairProduct);
          }
+        //  else if (category=="skin"){
+        //   dispatch(getSkinProduct);
+        //  }else{
+        //   dispatch(getHairProduct);
+        //  }
       })
     };
-
-    // const handleDeleteSkinProduct = (id) => {
-    //   dispatch(deleteProduct(id)).then((res)=>{
-    //     dispatch(getMakeUpProduct);
-    //   })
-    // };
-
-    // const handleDeleteHairProduct = (id) => {
-    //   dispatch(deleteProduct(id)).then((res)=>{
-    //     dispatch(getMakeUpProduct);
-    //   })
-    // };
-
-    console.log(skinProduct);
-    console.log(hairProduct)
   return (
     <>
     <Box display="flex">
@@ -110,7 +95,6 @@ const RemoveProduct = ({ children }) => {
      </Box>
         
       <Box width="83%" padding="20px">
-       <Text>delete-products</Text>
        
        <Tabs variant='soft-rounded' colorScheme='pink' onChange={(index) => setTabIndex(index)}>
          <TabList>
@@ -200,8 +184,8 @@ const SidebarContent = ({ onClose, ...rest }) => {
         borderRight="1px"
         borderRightColor={useColorModeValue('gray.200', 'gray.700')}
         w={{ base: 'full', md: 60 }}
-        pos="fixed"
-        h="full"
+        // pos="fixed"
+        h="110vh"
         {...rest}>
         <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
           <Box padding="20px 20px 20px 0px" >

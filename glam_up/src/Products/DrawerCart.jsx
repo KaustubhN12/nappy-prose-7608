@@ -124,8 +124,8 @@ export const DrawerCart = () => {
             <Box border='1px solid rgba(82, 79, 79, 0.249)' borderRadius='6px' mt='10px' p='2px'>
             <Box><Text as='b' fontSize='xl'>Price Details</Text></Box>
             <Box  display='flex' justifyContent='space-between' alignItems='center'><Text>Bag MRP ({cartData.length} items)</Text><Text>₹{totalPrice}</Text></Box>
-            <Box  display='flex' justifyContent='space-between' alignItems='center'><Text>Shipping</Text><Text>₹50</Text></Box>
-            <Box as='b' display='flex' justifyContent='space-between' alignItems='center'><Text fontSize='xl'> Grand Total:</Text><Text>₹{totalPrice+50}</Text></Box>
+            {/* <Box  display='flex' justifyContent='space-between' alignItems='center'><Text>Shipping</Text><Text>₹50</Text></Box> */}
+            <Box as='b' display='flex' justifyContent='space-between' alignItems='center'><Text fontSize='xl'> Grand Total:</Text><Text>₹{totalPrice}</Text></Box>
             </Box>
         </Box>}
             </DrawerBody>

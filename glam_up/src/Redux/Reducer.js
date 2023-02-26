@@ -13,7 +13,8 @@ const initialState ={
     isError:false,
     product:[],
     cartData:[],
-    totalPrice: 0,
+  totalPrice: 0,
+  totaldiscount:50
    
 }
 export const reducer = (state=initialState, {type,payload}) =>{
@@ -25,7 +26,7 @@ export const reducer = (state=initialState, {type,payload}) =>{
       ...state,
       cartData: [...state.cartData, payload],
       totalPrice: state.totalPrice + payload.price,
-    
+      totaldiscount:state.totalPrice - payload.totaldiscount,
     };
     case CART_DATA_REMOVE:
     return {

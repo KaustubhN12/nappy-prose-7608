@@ -40,19 +40,25 @@ const Admin = ({ children }) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const dispatch = useDispatch();
-    const makeUpProduct = useSelector((store)=>store.adminReducer.makeUpProduct);
-    const skinProduct = useSelector((store)=>store.adminReducer.skinProduct);
-    const hairProduct = useSelector((store)=>store.adminReducer.hairProduct);
 
     useEffect(()=>{
-     dispatch(getMakeUpProduct);
-     dispatch(getSkinProduct);
-     dispatch(getHairProduct);
-    },[]);
+      dispatch(getMakeUpProduct);
+     },[]);
+
+     useEffect(()=>{
+      dispatch(getSkinProduct);
+     })
+     useEffect(()=>{
+      dispatch(getHairProduct);
+     })
+
+    const makeUpProduct = useSelector((store)=>store.AdminReducer.makeUpProduct);
+    const skinProduct = useSelector((store)=>store.AdminReducer.skinProduct);
+    const hairProduct = useSelector((store)=>store.AdminReducer.hairProduct);
+
 
   return (
      <>
-     {/* <Navbar/> */}
    <Box display="flex">
 
     <Box width="17%">
@@ -165,10 +171,10 @@ const SidebarContent = ({ onClose, ...rest }) => {
         borderRight="1px"
         borderRightColor={useColorModeValue('gray.200', 'gray.700')}
         w={{ base: 'full', md: 60 }}
-        pos="fixed"
-        h="full"
+        // pos="fixed"
+        h="110vh"
         {...rest}>
-        <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+        <Flex h="20" alignItems="center" mx="8" justifyContent="space-between" backgroundColor="#FFFFFF">
           <Box padding="20px 20px 20px 0px" >
           <Image src="https://i.ibb.co/1XYt2t1/glamup-2-1.png"/>
           </Box>
