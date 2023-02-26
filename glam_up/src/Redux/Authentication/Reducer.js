@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS } from "./ActionType";
+import { LOGGED_OUT, LOGIN_REQUEST, LOGIN_SUCCESS } from "./ActionType";
 
 const initialState = {
     isAuth:false,
@@ -15,6 +15,10 @@ export const reducer = (state=initialState,{type,payload}) => {
         case LOGIN_SUCCESS:
             return {
                 ...state,isAuth:true,userName:payload
+            }
+        case LOGGED_OUT:
+            return {
+                ...state,isAuth:false,userName:""
             }
         default:
             return state;
