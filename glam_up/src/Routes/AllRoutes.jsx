@@ -1,3 +1,4 @@
+import { Heading } from "@chakra-ui/react";
 import {Routes, Route} from "react-router-dom";
 import AddProduct from "../Admin/AddProduct";
 import RemoveProduct from "../Admin/RemoveProduct";
@@ -33,9 +34,13 @@ const AllRoutes =()=>{
         <Route path="/cart" element={<CartItem />} />
         <Route path="/luxe" element={<LuxePage />} />
         <Route path="/address" element={<Address />} />
-        <Route path="/payment" element={<PaymentPage />} />
+        {/* <Route path="/payment" element={<PaymentPage />} /> */}
         <Route path="/ordersuccessfull" element={<OrderSuccessfull />} />
+
+        <Route path="*" element={<Heading>Page Not found</Heading>}></Route>
+
          <Route path="/admin-login" element = {<AdminLogin/>}/>
+
       </Routes>
     );
 }

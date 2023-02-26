@@ -13,13 +13,15 @@ import {
 } from "@chakra-ui/react";
 import { InfoIcon } from "@chakra-ui/icons";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { CardImages } from "./Data/CardImages";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { cartDataEmptySuccess } from "../../../Redux/action";
 
 const CreditCard = () => {
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartData = useSelector((store) => {
     console.log(store);
 
@@ -30,6 +32,10 @@ const CreditCard = () => {
     return store.productReducer.totalPrice;
   });
   // const { Totaldiscountprice } = useSelector((state) => state.CartReducer);
+  const emptyCartData=()=>{
+    dispatch(cartDataEmptySuccess());
+    navigate('/ordersuccessfull')
+  }
   return (
     <Flex
       gap="2"
@@ -94,8 +100,9 @@ const CreditCard = () => {
         </Text>
       </Flex>
 
-      <Link to="/ordersuccessfull">
+      {/* <Link to="/ordersuccessfull"> */}
         <Button
+          onClick={emptyCartData}
           color="#FFFFFF"
           fontFamily="Inter"
           fontSize="16px"
@@ -111,7 +118,7 @@ const CreditCard = () => {
         >
           Pay ₹ {totalPrice - 100}
         </Button>
-      </Link>
+      {/* </Link> */}
     </Flex>
   );
 };
