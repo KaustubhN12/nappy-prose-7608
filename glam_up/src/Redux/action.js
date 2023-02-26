@@ -1,5 +1,6 @@
 import {
    CART_DATA_ADD,
+    CART_DATA_EMPTY,
     CART_DATA_REMOVE,
     GET_PRODUCT_SUCCESS,
     PRODUCT_FAILURE,
@@ -29,6 +30,9 @@ import {
   }
   export const removeCartData =(payload)=>{
     return {type: CART_DATA_REMOVE , payload}
+}
+export const cartDataEmptySuccess =()=>{
+  return {type: CART_DATA_EMPTY }
 }
   export const getProduct = (location) => (dispatch)=>{
     const url= `https://api-nykaa-database.vercel.app${location}`

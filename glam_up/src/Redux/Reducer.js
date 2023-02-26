@@ -5,7 +5,8 @@ import { GET_PRODUCT_SUCCESS,PRODUCT_FAILURE, PRODUCT_REQUEST ,cartDataLoading,
   deleteSuccess,
   deleteError,
   CART_DATA_REMOVE,
-  CART_DATA_ADD,} from "./actionType"
+  CART_DATA_ADD,
+  CART_DATA_EMPTY,} from "./actionType"
 
 const initialState ={
     isLoading:false,
@@ -32,6 +33,9 @@ export const reducer = (state=initialState, {type,payload}) =>{
         cartData: state.cartData.filter((el)=> el.id !== payload.id),
         totalPrice: state.totalPrice - payload.price
        }
+     case CART_DATA_EMPTY :
+       return {...state, cartData:[]}
+    
    default : return state;
     }
   }

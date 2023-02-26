@@ -120,7 +120,7 @@ const SingleProductPage = () => {
                      <Box  padding='10px'  className='hoverimage'>
 
                               {/* <Image src={currimage} h='90%' alt='.'></Image> */}
-                              <img src={currimage} alt="hello" srcset="" width={'80%'} />
+                              <img src={currimage} alt="hello" width={'80%'} />
                              {/* <ReactImageMagnify {...{
                             smallImage: {
                                     alt: 'image',
