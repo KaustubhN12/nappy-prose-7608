@@ -269,7 +269,7 @@ const Address = () => {
                     </Heading>
                     {<Heading fontSize="14px">{cartData.length} Items</Heading>}
                   </Box>
-                  <AccordionIcon />
+                  {/* <AccordionIcon /> */}
                 </AccordionButton>
               </h2>
               <AccordionPanel
@@ -277,12 +277,12 @@ const Address = () => {
                 display="flex"
                 justifyContent={"space-between"}
               >
-                <Image
+                {/* <Image
                   // src={img}
                   alt="Image"
                   boxSize="90px"
                   objectFit="cover"
-                />
+                /> */}
                 {/* <Text>{name}</Text> */}
               </AccordionPanel>
             </AccordionItem>
