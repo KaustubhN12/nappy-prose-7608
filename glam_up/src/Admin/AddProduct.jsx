@@ -57,8 +57,7 @@ const LinkItems = [
     img4:"https://images-static.nykaa.com/media/catalog/product/9/9/994f68922998_S5_8901030863127.jpg",
     star:3.0,
     starcount:"★★★☆☆",
-    shades: "6 Shades"
-
+    shades: "6 Shades",
   }
 
 const AddProduct = ({ children }) => {
@@ -82,7 +81,7 @@ const AddProduct = ({ children }) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        dispatch(postProduct(product,category));
+        dispatch(postProduct(product))
         setProduct(initialState);
         setCategory("");
     }
@@ -229,8 +228,8 @@ const SidebarContent = ({ onClose, ...rest }) => {
         borderRight="1px"
         borderRightColor={useColorModeValue('gray.200', 'gray.700')}
         w={{ base: 'full', md: 60 }}
-        pos="fixed"
-        h="full"
+        // pos="fixed"
+        h="110vh"
         {...rest}>
         <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
           <Box padding="20px 20px 20px 0px" >

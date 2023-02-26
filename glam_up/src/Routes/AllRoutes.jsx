@@ -3,6 +3,7 @@ import AddProduct from "../Admin/AddProduct";
 import RemoveProduct from "../Admin/RemoveProduct";
 import Address from "../Pages/AddressPage/Address";
 import Admin from "../Pages/Admin";
+import AdminLogin from "../Pages/AdminLogin";
 import CartItem from "../Pages/CartPage/Components/CartItem";
 import Home from "../Pages/home";
 import SimpleCard from "../Pages/Login";
@@ -32,6 +33,7 @@ const AllRoutes =()=>{
          <Route path="/luxe" element ={<LuxePage/>}/>
          <Route path="/address" element={<Address/>}/>
          <Route path="/payment" element = {<PaymentPage/>}/>
+         <Route path="/admin-login" element = {<AdminLogin/>}/>
        </Routes>
     )
 }
