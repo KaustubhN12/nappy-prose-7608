@@ -1,4 +1,4 @@
-import {Box,Text,SimpleGrid,Image,Container,Button ,useToast,Flex,VStack,Heading} from '@chakra-ui/react';
+import {Box,Text,SimpleGrid,Image,Container,Button ,useToast,Flex,VStack,Heading, Spinner} from '@chakra-ui/react';
 import {useState,useEffect} from 'react';
 import { GrNext, GrPrevious} from 'react-icons/gr';
 import './ProductPage.css';
@@ -10,7 +10,8 @@ import { Link, useLocation } from 'react-router-dom';
  const Loading=()=>{
         return(
           <Container>
-            <Image w='200px' h='200px' ml='180px'  src='https://reiwa.com.au/ux/reiwa/ux/images/pd/spinner.gif'/>
+            {/* <Image w='200px' h='200px' ml='180px'  src='https://reiwa.com.au/ux/reiwa/ux/images/pd/spinner.gif'/> */}
+            <Spinner color='red.500' size='xl' />
           </Container>
            )
        }

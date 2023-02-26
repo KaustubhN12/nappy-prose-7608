@@ -3,10 +3,11 @@
 .firstsubContainer{
     display: flex;
     width: 100%;
-    height: 40px;
+    height: 36px;
     border:0px solid blue;
     justify-content: space-around;
     background-color: #ff7db0;
+    background-image: url("https://adn-static1.nykaa.com/media/wysiwyg/2021/common-strip.jpg");
 }
 
 
@@ -36,7 +37,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 8vh;
+    height: 9vh;
     background-color: #ffffff;
      
 }
