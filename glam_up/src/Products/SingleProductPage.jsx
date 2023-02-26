@@ -1,5 +1,5 @@
 // import { StarIcon } from '@chakra-ui/icons';
-import { Box,Text, HStack,VStack,Divider,Center,Tooltip,Collapse,Button,useDisclosure,Image,UnorderedList,ListItem } from '@chakra-ui/react';
+import { Box,Text, HStack,VStack,Divider,Center,Tooltip,Collapse,Button,useDisclosure,Image,UnorderedList,ListItem, useToast } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {  useLocation, useParams } from 'react-router-dom';
@@ -12,7 +12,7 @@ import './ProductPage.css';
 import {BiChevronDown} from 'react-icons/bi'
 
 const SingleProductPage = () => {
-  
+    const toast = useToast();
     const param=useParams();
     const location = useLocation();
   //  console.log(location.pathname);
@@ -29,7 +29,12 @@ const SingleProductPage = () => {
     const handleAddToCart=()=>{
         
            dispatch(addCartData(data))
-         //  console.log("addedData",addedData);
+           toast({
+            title: `Product added to bag`,
+            status: 'success',
+            duration: 4000,
+            isClosable: true,
+          })
     }
     
     function CollapseEx() {

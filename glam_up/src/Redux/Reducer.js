@@ -23,11 +23,10 @@ export const reducer = (state=initialState, {type,payload}) =>{
     case CART_DATA_REMOVE:
     return {
         ...state,
-        cartData: [...state.cartData.filter((el)=> el.id = !payload.id)],
+        cartData: state.cartData.filter((el)=> el.id !== payload.id),
         totalPrice: state.totalPrice - payload.price
-       };
-   
-    default : return state;
+       }
+   default : return state;
     }
   }
 
