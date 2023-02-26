@@ -128,7 +128,7 @@ export const DrawerCart = () => {
         </Box>}
             </DrawerBody>
             <DrawerFooter>
-                {cartData.length >0 &&  <Link  to='/payment'><Button colorScheme='pink' w='150px'>Proceed <HiArrowRight/></Button></Link>}
+                {cartData.length >0 &&  <Link  to='/address'><Button colorScheme='pink' w='150px'>Proceed <HiArrowRight/></Button></Link>}
            
                 </DrawerFooter>
                 </DrawerContent>

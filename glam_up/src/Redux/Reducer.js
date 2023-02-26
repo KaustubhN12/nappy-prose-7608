@@ -12,14 +12,20 @@ const initialState ={
     isError:false,
     product:[],
     cartData:[],
-    totalPrice:0
+    totalPrice: 0,
+   
 }
 export const reducer = (state=initialState, {type,payload}) =>{
   switch(type){
     case PRODUCT_REQUEST : return {...state ,isLoading:true }
     case GET_PRODUCT_SUCCESS : return {...state , isLoading:false, product:payload}
     case PRODUCT_FAILURE : return {...state ,isError:true }
-    case CART_DATA_ADD: return {...state,cartData: [...state.cartData, payload],totalPrice: state.totalPrice + payload.price}
+    case CART_DATA_ADD: return {
+      ...state,
+      cartData: [...state.cartData, payload],
+      totalPrice: state.totalPrice + payload.price,
+    
+    };
     case CART_DATA_REMOVE:
     return {
         ...state,
