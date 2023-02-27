@@ -58,7 +58,7 @@ npm install
 npm start
 
   
-<h2>💻 Tech Stack</h2>
+💻 Tech Stack
 
 Technologies used in the project:
 
@@ -69,6 +69,6 @@ Technologies used in the project:
 *   Some Dependencies
 *   Project Deployed on Vercel
 
-<p>Thanks Masai School for giving us this opportunity to show and deploy our skills to explore ideas and learn new things about project-making </p>
+Thanks Masai School for giving us this opportunity to show and deploy our skills to explore ideas and learn new things about project-making
 
-<h2>Special Thanks 😊</h2>
+Special Thanks 😊
