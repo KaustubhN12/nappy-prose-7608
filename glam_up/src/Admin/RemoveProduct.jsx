@@ -27,6 +27,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProduct, getHairProduct, getMakeUpProduct, getSkinProduct } from '../Redux/Admin/Action';
+import { useToast } from '@chakra-ui/react';
 
 const LinkItems = [
     { name: 'Home', icon: FiHome ,link:"/admin"},
@@ -44,6 +45,7 @@ const RemoveProduct = ({ children }) => {
     const skinProduct = useSelector((store)=>store.AdminReducer.skinProduct);
     const hairProduct = useSelector((store)=>store.AdminReducer.hairProduct);
     const [tabIndex, setTabIndex] = useState(0);
+    const toast = useToast();
 
     // useEffect(()=>{
     //  dispatch(getMakeUpProduct);
@@ -55,6 +57,13 @@ const RemoveProduct = ({ children }) => {
       let category=tabIndex==0?"makeup":tabIndex==1?"skin":"hair";
       dispatch(deleteProduct(id,category)).then((res)=>{
          if(category=="makeup"){
+          toast({
+            title: 'Product Deleted.',
+            status: 'success',
+            position:"top",
+            duration: 3000,
+            isClosable: true,
+          });
           dispatch(getMakeUpProduct);
          }
         //  else if (category=="skin"){
@@ -99,7 +108,7 @@ const RemoveProduct = ({ children }) => {
        <Tabs variant='soft-rounded' colorScheme='pink' onChange={(index) => setTabIndex(index)}>
          <TabList>
            <Tab>Make Up</Tab>
-           <Tab>Mosturizer</Tab>
+           <Tab>Skin</Tab>
            <Tab>Hair</Tab>
          </TabList>
         <TabPanels>
