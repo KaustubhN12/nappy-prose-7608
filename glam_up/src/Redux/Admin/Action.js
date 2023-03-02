@@ -1,6 +1,5 @@
 import { ADMIN_PRODUCT_FAILURE, ADMIN_PRODUCT_REQUEST, DELETE_PRODUCT_REQUEST, GET_HAIRPRODUCT_REQUEST, GET_MAKEUPPRODUCT_REQUEST, GET_SKINPRODUCTS_REQUEST, POST_PRODUCT_REQUEST } from "./ActionType";
 import axios from "axios";
-import { assignRef } from "@chakra-ui/react";
 
 export const adminProductRequst = () => {
     return {type:ADMIN_PRODUCT_REQUEST}
@@ -32,7 +31,7 @@ export const deleteProductSuccess = () => {
 
 export const getMakeUpProduct = (dispatch) => {
     dispatch(adminProductRequst());
-    axios.get("https://api-nykaa-database.vercel.app/makeup").then((res)=>{
+    axios.get("https://brandstore.onrender.com/makeup").then((res)=>{
         dispatch(getMakeupProductSuccess(res.data));
     }).catch((err)=>{
         dispatch(adminProductFailure());
@@ -41,7 +40,7 @@ export const getMakeUpProduct = (dispatch) => {
 
 export const getSkinProduct = (dispatch) => {
     dispatch(adminProductRequst());
-    axios.get("https://api-nykaa-database.vercel.app/skin").then((res)=>{
+    axios.get("https://brandstore.onrender.com/skin").then((res)=>{
         dispatch(getSkinProductSuccess(res.data));
     }).catch((err)=>{
         dispatch(adminProductFailure());
@@ -50,7 +49,7 @@ export const getSkinProduct = (dispatch) => {
 
 export const getHairProduct = (dispatch) => {
     dispatch(adminProductRequst());
-    axios.get("https://api-nykaa-database.vercel.app/hair").then((res)=>{
+    axios.get("https://brandstore.onrender.com/hair").then((res)=>{
         dispatch(getHairProductSuccess(res.data));
     }).catch((err)=>{
         dispatch(adminProductFailure());
@@ -58,18 +57,17 @@ export const getHairProduct = (dispatch) => {
 }
 
 export const postProduct = (payload) => (dispatch) => {
-    dispatch(adminProductRequst());
-   return axios.post("https://api-nykaa-database.vercel.app/makeup",payload).then((res)=>{
+     dispatch(adminProductRequst());
+    return axios.post("https://brandstore.onrender.com/makeup",payload).then((res)=>{
         dispatch(postProductSuccess());
-        console.log(res.data)
-    }).catch((err)=> {
-        dispatch(adminProductFailure());
-    })
+     }).catch((err)=>{
+        console.log(err);
+     })
 }
 
 export const deleteProduct = (id,category) => (dispatch) => {
     dispatch(adminProductRequst());
-   return axios.delete(`https://api-nykaa-database.vercel.app/${category}/${id}`).then((res)=>{
+   return axios.delete(`https://brandstore.onrender.com/${category}/${id}`).then((res)=>{
         dispatch(deleteProductSuccess());
     }).catch((err)=>{
         dispatch(adminProductFailure());

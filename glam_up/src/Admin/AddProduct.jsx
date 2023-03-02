@@ -18,7 +18,7 @@ import {
   FormLabel,
   Input,
   Select,
-  Button,
+  Button
 } from '@chakra-ui/react';
 import {
   FiHome,
@@ -30,17 +30,18 @@ import { DeleteIcon, PlusSquareIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { postProduct } from '../Redux/Admin/Action';
+import { useToast } from '@chakra-ui/react'
 
 const LinkItems = [
     { name: 'Home', icon: FiHome ,link:"/admin"},
-    { name: 'Statistics', icon: FiTrendingUp ,link:"/"},
-    { name: 'Users', icon: FiUsers ,link:"/"},
+    { name: 'Statistics', icon: FiTrendingUp ,link:"#"},
+    { name: 'Users', icon: FiUsers ,link:"#"},
     { name: 'Add Products', icon: PlusSquareIcon ,link:"/admin/add-product"},
     { name: 'Delete Products', icon: DeleteIcon ,link:"/admin/remove-product"},
   ];
-  let url = "https://api-nykaa-database.vercel.app/makeup"
 
   let initialState = {
+    id:Date.now(),
     Image:"",
     title:"",
     price:"",
@@ -65,6 +66,7 @@ const AddProduct = ({ children }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [product,setProduct] = useState(initialState);
     const [category,setCategory] = useState("");
+    const toast = useToast();
      const dispatch = useDispatch()
     const handleChange = (e) => {
     const {name,value} = e.target;
@@ -81,7 +83,15 @@ const AddProduct = ({ children }) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        dispatch(postProduct(product))
+        dispatch(postProduct(product)).then((res)=>{
+          toast({
+            title: 'Product Added.',
+            status: 'success',
+            position:"top",
+            duration: 3000,
+            isClosable: true,
+          })
+        })
         setProduct(initialState);
         setCategory("");
     }
@@ -141,6 +151,7 @@ const AddProduct = ({ children }) => {
             name='Image'
             value={product.Image}
             onChange={handleChange}
+            isRequired
              />
           </FormControl>
           <FormControl id="title">
@@ -150,6 +161,7 @@ const AddProduct = ({ children }) => {
             name="title"
             value={product.title}
             onChange={handleChange}
+            isRequired
              />
           </FormControl>
           <FormControl id="price">
@@ -159,6 +171,7 @@ const AddProduct = ({ children }) => {
             name="price"
             value={product.price}
             onChange={handleChange}
+            isRequired
             />
           </FormControl>
           <FormControl id="discount">
@@ -189,7 +202,7 @@ const AddProduct = ({ children }) => {
             />
           </FormControl>
           <FormLabel>Gender</FormLabel>
-          <Select name='gender'  onChange={handleCategory}>
+          <Select name='gender' value={category}  onChange={handleCategory}>
             <option value="">Select Category</option>
             <option value="makeup">makeup</option>
             <option value="skin">skin</option>

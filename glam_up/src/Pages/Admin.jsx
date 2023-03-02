@@ -43,15 +43,10 @@ const Admin = ({ children }) => {
 
     useEffect(()=>{
       dispatch(getMakeUpProduct);
-     },[]);
-
-     useEffect(()=>{
       dispatch(getSkinProduct);
-     })
-     useEffect(()=>{
       dispatch(getHairProduct);
-     })
-
+     },[]);
+     
     const makeUpProduct = useSelector((store)=>store.AdminReducer.makeUpProduct);
     const skinProduct = useSelector((store)=>store.AdminReducer.skinProduct);
     const hairProduct = useSelector((store)=>store.AdminReducer.hairProduct);
@@ -91,14 +86,14 @@ const Admin = ({ children }) => {
      <Tabs variant='soft-rounded' colorScheme='pink'>
          <TabList>
            <Tab>Make Up</Tab>
-           <Tab>Mosturizer</Tab>
+           <Tab>Skin</Tab>
            <Tab>Hair</Tab>
          </TabList>
         <TabPanels>
          <TabPanel>
           <Grid gridTemplateColumns="repeat(4,1fr)" gap="20px">
             {
-              makeUpProduct.length>0 && makeUpProduct.map((el)=>{
+              makeUpProduct.length>0 && makeUpProduct?.map((el)=>{
                 return <GridItem key={el.id} border="1px solid #E2E8F0">
                     <Box>
                     <Image src={el.Image}/>
@@ -117,7 +112,7 @@ const Admin = ({ children }) => {
          <TabPanel>
          <Grid gridTemplateColumns="repeat(4,1fr)" gap="20px">
             {
-              skinProduct.length>0 && skinProduct.map((el)=>{
+              skinProduct.length>0 && skinProduct?.map((el)=>{
                 return <GridItem key={el.id} border="1px solid #E2E8F0">
                     <Box>
                     <Image src={el.Image}/>
@@ -136,7 +131,7 @@ const Admin = ({ children }) => {
         <TabPanel>
         <Grid gridTemplateColumns="repeat(4,1fr)" gap="20px">
             {
-              hairProduct.length>0 && hairProduct.map((el)=>{
+              hairProduct.length>0 && hairProduct?.map((el)=>{
                 return <GridItem key={el.id} border="1px solid #E2E8F0">
                     <Box>
                     <Image src={el.Image}/>
